@@ -1,0 +1,97 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-25 19:04+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: controllers/IndexController.php:39
+msgid "Record does not exist."
+msgstr ""
+
+#: controllers/IndexController.php:44
+msgid "This record does not accept tags."
+msgstr ""
+
+#: controllers/IndexController.php:120
+#, php-format
+msgid "Proposed tags \"%s\" have been approved."
+msgstr ""
+
+#: controllers/IndexController.php:123
+#, php-format
+msgid ""
+"Your proposition \"%s\"  is already proposed or is not correctly formatted."
+msgstr ""
+
+#: controllers/IndexController.php:127
+#, php-format
+msgid "Your proposition \"%s\" is awaiting approbation."
+msgstr ""
+
+#: controllers/IndexController.php:134
+#, php-format
+msgid "Your tag \"%s\" have been added."
+msgstr ""
+
+#: controllers/IndexController.php:137
+#, php-format
+msgid "Your tags \"%s\" have been added."
+msgstr ""
+
+#: forms/TaggingForm.php:13
+msgid "Add Tags"
+msgstr ""
+
+#: forms/TaggingForm.php:14
+#, php-format
+msgid "Separe multiple tags with a \"%s\"."
+msgstr ""
+
+#: forms/TaggingForm.php:26
+msgid "Proposed tag cannot be empty."
+msgstr ""
+
+#: forms/TaggingForm.php:28
+msgid "Proposed tags cannot be longer than 1000 characters."
+msgstr ""
+
+#: forms/TaggingForm.php:39
+msgid "Please verify you're a human"
+msgstr ""
+
+#: forms/TaggingForm.php:76
+msgid "Add"
+msgstr ""
+
+#: models/Tagging.php:72
+msgid "Can't leave an empty tag!"
+msgstr ""
+
+#: models/Tagging.php:75
+msgid "This status is not authorized."
+msgstr ""
+
+#: models/Tagging.php:78
+msgid "Record type cannot be empty."
+msgstr ""
+
+#: models/Tagging.php:81
+msgid "Record id cannot be empty."
+msgstr ""
+
+#: models/Tagging.php:121
+msgid "Anonymous"
+msgstr ""
