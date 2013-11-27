@@ -14,7 +14,7 @@
     text-align: left;
     z-index: 1010;
 }
-#tagging-form input {
+#tagging-form input#submit {
     float: right;
 }
 #tagging-form ul.errors li {

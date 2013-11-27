@@ -13,7 +13,7 @@ class Tagging_TaggingForm extends Omeka_Form
             'label' => __('Add Tags'),
             'description' => __('Separe multiple tags with a "%s".', get_option('tag_delimiter')),
             'required' => true,
-            'size' => 40,
+            'size' => 60,
             // An internal validator is used after (allow some non alnum
             // characters).
             // TODO Use the regex validator here?
@@ -49,6 +49,25 @@ class Tagging_TaggingForm extends Omeka_Form
             ));
         }
 
+        // The legal agreement is checked by default for logged users.
+        if (get_option('tagging_legal_text')) {
+            $this->addElement('checkbox', 'tagging_legal_text', array(
+                'label' => get_option('tagging_legal_text'),
+                'value' => (boolean) $user,
+                'required' => true,
+                'uncheckedValue'=> '',
+                'checkedValue' => 'checked',
+                'validators' => array(
+                    array('notEmpty', true, array(
+                        'messages' => array(
+                            'isEmpty'=> __('You must agree to the terms and conditions.'),
+                        ),
+                    )),
+                ),
+                'decorators' => array('ViewHelper', 'Errors', array('label', array('escape' => false))),
+            ));
+        }
+
         // Add some hidden fields to simplify redirection.
         $request = Zend_Controller_Front::getInstance()->getRequest();
         $record_type = ucfirst(Inflector::singularize($request->getControllerName()));
@@ -57,19 +76,16 @@ class Tagging_TaggingForm extends Omeka_Form
             'value' => $request->getPathInfo(),
             'hidden' => true,
             'class' => 'hidden',
-            'decorators' => array('ViewHelper'),
         ));
         $this->addElement('hidden', 'record_type', array(
             'value' => $record_type,
             'hidden' => true,
             'class' => 'hidden',
-            'decorators' => array('ViewHelper'),
         ));
         $this->addElement('hidden', 'record_id', array(
             'value' => $record_id,
             'hidden' => true,
             'class' => 'hidden',
-            'decorators' => array('ViewHelper'),
         ));
 
         $this->addElement('submit', 'submit', array(

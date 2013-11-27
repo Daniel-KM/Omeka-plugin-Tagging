@@ -51,6 +51,7 @@
         'tagging_form_class' => '',
         'tagging_max_length_total' => 400,
         'tagging_max_length_tag' => 40,
+        'tagging_legal_text' => '',
         // Without roles.
         'tagging_public_allow_tag' => true,
         'tagging_public_require_moderation' => true,
@@ -95,6 +96,14 @@
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
         ";
         $db->query($sql);
+
+        $html = '<p>';
+        $html .= __('I agree with %s terms of use %s and I accept to free my contribution under the licence %s CC BY-SA %s.',
+            '<a href="#" target="_blank">', '</a>',
+            '<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank">', '</a>'
+        );
+        $html .= '</p>';
+        $this->_options['tagging_legal_text'] = $html;
 
         $this->_installOptions();
     }
