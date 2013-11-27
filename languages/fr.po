@@ -3,79 +3,51 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-25 17:59+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-11-27 11:30+0100\n"
+"PO-Revision-Date: 2013-11-27 11:35+0100\n"
+"Last-Translator: Daniel Berthereau <Daniel.fr@Berthereau.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
 
-#: TaggingPlugin.php:209
-msgid "No proposed taggings"
-msgstr "Aucune proposition de mots-clés"
-
-#: TaggingPlugin.php:213
-#, php-format
-msgid "Taggings: %d proposed (%d not moderated)"
-msgstr "Mots-clés : %d proposés (%d non modérés)"
-
-#: TaggingPlugin.php:225
-msgid "Taggings:"
-msgstr "Mots-clés :"
-
-#: TaggingPlugin.php:239
-msgid "Proposed"
-msgstr "Proposé"
-
-#: TaggingPlugin.php:240
-msgid "Approved"
-msgstr "Approuvé"
-
-#: TaggingPlugin.php:241
-msgid "Rejected"
-msgstr "Rejeté"
-
-#: TaggingPlugin.php:305
-msgid "Taggings"
-msgstr "Mots-clés"
-
-#: controllers/IndexController.php:39
+#: controllers/IndexController.php:39 controllers/IndexController.php:45
 msgid "Record does not exist."
 msgstr "Cette notice n'existe pas."
 
-#: controllers/IndexController.php:44
+#: controllers/IndexController.php:44 controllers/IndexController.php:38
 msgid "This record does not accept tags."
 msgstr "Cette notice n'accepte pas les mots-clés."
 
-#: controllers/IndexController.php:120
+#: controllers/IndexController.php:120 controllers/IndexController.php:127
 #, php-format
 msgid "Proposed tags \"%s\" have been approved."
 msgstr "Les mots-clés proposés \"%s\" n'ont pas été approuvés."
 
-#: controllers/IndexController.php:123
+#: controllers/IndexController.php:123 controllers/IndexController.php:130
 #, php-format
 msgid ""
 "Your proposition \"%s\"  is already proposed or is not correctly formatted."
-msgstr "Votre proposition \"%s\" a déjà été proposée ou n'est pas correctement formatée."
+msgstr ""
+"Votre proposition \"%s\" a déjà été proposée ou n'est pas correctement "
+"formatée."
 
-#: controllers/IndexController.php:127
+#: controllers/IndexController.php:127 controllers/IndexController.php:134
 #, php-format
 msgid "Your proposition \"%s\" is awaiting approbation."
 msgstr "Votre proposition \"%s\" est en attente d'approbation."
 
-#: controllers/IndexController.php:134
+#: controllers/IndexController.php:134 controllers/IndexController.php:141
 #, php-format
 msgid "Your tag \"%s\" have been added."
 msgstr "Votre mot-clé \"%s\" a été ajouté."
 
-#: controllers/IndexController.php:137
+#: controllers/IndexController.php:137 controllers/IndexController.php:144
 #, php-format
 msgid "Your tags \"%s\" have been added."
 msgstr "Vos mots-clés \"%s\" ont été ajoutés."
@@ -124,3 +96,46 @@ msgstr "L'identifiant de notice ne peut pas être vide."
 #: models/Tagging.php:121
 msgid "Anonymous"
 msgstr "Anonyme"
+
+#: controllers/IndexController.php:101
+#, php-format
+msgid "A proposed tag can not be longer than %d characters."
+msgstr "Un mot-clé ne peut pas avoir plus de %d caractères."
+
+#: forms/TaggingForm.php:28
+#, php-format
+msgid "Proposed tags cannot be longer than %d characters."
+msgstr "La proposition de mot-clés ne peut pas avoir plus de %d caractères."
+
+#: forms/TaggingForm.php:76
+msgid "Tag it"
+msgstr "Taguer"
+
+#: TaggingPlugin.php:211
+msgid "No proposed taggings"
+msgstr "Aucune proposition de mots-clés"
+
+#: TaggingPlugin.php:215
+#, php-format
+msgid "Taggings: %d proposed (%d not moderated)"
+msgstr "Taguages : %d proposés (%d non modérés)"
+
+#: TaggingPlugin.php:227
+msgid "Taggings:"
+msgstr "Taguages :"
+
+#: TaggingPlugin.php:255
+msgid "Proposed"
+msgstr "Proposé"
+
+#: TaggingPlugin.php:256
+msgid "Approved"
+msgstr "Approuvé"
+
+#: TaggingPlugin.php:257
+msgid "Rejected"
+msgstr "Rejeté"
+
+#: TaggingPlugin.php:308
+msgid "Taggings"
+msgstr "Taguages"

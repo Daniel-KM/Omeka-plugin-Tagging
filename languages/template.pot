@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-25 19:04+0100\n"
+"POT-Creation-Date: 2013-11-27 11:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,36 +17,36 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: controllers/IndexController.php:39
+#: controllers/IndexController.php:39 controllers/IndexController.php:45
 msgid "Record does not exist."
 msgstr ""
 
-#: controllers/IndexController.php:44
+#: controllers/IndexController.php:44 controllers/IndexController.php:38
 msgid "This record does not accept tags."
 msgstr ""
 
-#: controllers/IndexController.php:120
+#: controllers/IndexController.php:120 controllers/IndexController.php:127
 #, php-format
 msgid "Proposed tags \"%s\" have been approved."
 msgstr ""
 
-#: controllers/IndexController.php:123
+#: controllers/IndexController.php:123 controllers/IndexController.php:130
 #, php-format
 msgid ""
 "Your proposition \"%s\"  is already proposed or is not correctly formatted."
 msgstr ""
 
-#: controllers/IndexController.php:127
+#: controllers/IndexController.php:127 controllers/IndexController.php:134
 #, php-format
 msgid "Your proposition \"%s\" is awaiting approbation."
 msgstr ""
 
-#: controllers/IndexController.php:134
+#: controllers/IndexController.php:134 controllers/IndexController.php:141
 #, php-format
 msgid "Your tag \"%s\" have been added."
 msgstr ""
 
-#: controllers/IndexController.php:137
+#: controllers/IndexController.php:137 controllers/IndexController.php:144
 #, php-format
 msgid "Your tags \"%s\" have been added."
 msgstr ""
@@ -94,4 +94,47 @@ msgstr ""
 
 #: models/Tagging.php:121
 msgid "Anonymous"
+msgstr ""
+
+#: controllers/IndexController.php:101
+#, php-format
+msgid "A proposed tag can not be longer than %d characters."
+msgstr ""
+
+#: forms/TaggingForm.php:28
+#, php-format
+msgid "Proposed tags cannot be longer than %d characters."
+msgstr ""
+
+#: forms/TaggingForm.php:76
+msgid "Tag it"
+msgstr ""
+
+#: TaggingPlugin.php:211
+msgid "No proposed taggings"
+msgstr ""
+
+#: TaggingPlugin.php:215
+#, php-format
+msgid "Taggings: %d proposed (%d not moderated)"
+msgstr ""
+
+#: TaggingPlugin.php:227
+msgid "Taggings:"
+msgstr ""
+
+#: TaggingPlugin.php:255
+msgid "Proposed"
+msgstr ""
+
+#: TaggingPlugin.php:256
+msgid "Approved"
+msgstr ""
+
+#: TaggingPlugin.php:257
+msgid "Rejected"
+msgstr ""
+
+#: TaggingPlugin.php:308
+msgid "Taggings"
 msgstr ""

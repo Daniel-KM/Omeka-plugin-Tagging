@@ -49,6 +49,8 @@
      */
     protected $_options = array(
         'tagging_form_class' => '',
+        'tagging_max_length_total' => 400,
+        'tagging_max_length_tag' => 40,
         // Without roles.
         'tagging_public_allow_tag' => true,
         'tagging_public_require_moderation' => true,

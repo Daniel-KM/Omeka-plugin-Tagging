@@ -57,6 +57,8 @@ jQuery(document).ready(function() {
     // Approved from any status.
     jQuery('input[name="submit-batch-approve"]').click(function(event) {
         event.preventDefault();
+        jQuery('table#taggings thead tr th.batch-edit-heading input').attr('checked', false);
+        jQuery('.batch-edit-option input').prop('disabled', true);
         jQuery('table#taggings tbody input[type=checkbox]:checked').each(function(){
             var checkbox = jQuery(this);
             var current = jQuery('.' + 'tagging-toggle-status' + '#' + this.value);
@@ -83,6 +85,8 @@ jQuery(document).ready(function() {
     // Reject from any status.
     jQuery('input[name="submit-batch-reject"]').click(function(event) {
         event.preventDefault();
+        jQuery('table#taggings thead tr th.batch-edit-heading input').attr('checked', false);
+        jQuery('.batch-edit-option input').prop('disabled', true);
         jQuery('table#taggings tbody input[type=checkbox]:checked').each(function(){
             var checkbox = jQuery(this);
             var current = jQuery('.' + 'tagging-toggle-status' + '#' + this.value);
@@ -112,6 +116,8 @@ jQuery(document).ready(function() {
         if (!confirm(jQuery('table#taggings tbody a.tagging-toggle-status').data('status').confirmation)) {
             return;
         }
+        jQuery('table#taggings thead tr th.batch-edit-heading input').attr('checked', false);
+        jQuery('.batch-edit-option input').prop('disabled', true);
         jQuery('table#taggings tbody input[type=checkbox]:checked').each(function(){
             var checkbox = jQuery(this);
             var row = jQuery(this).closest('tr.tagging');

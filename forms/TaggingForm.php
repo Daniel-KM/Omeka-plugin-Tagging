@@ -16,16 +16,16 @@ class Tagging_TaggingForm extends Omeka_Form
             'size' => 40,
             // An internal validator is used after (allow some non alnum
             // characters).
-            // TODO Use t he regex validator here?
+            // TODO Use the regex validator here?
             'validators' => array(
                 array('validator' => 'StringLength', 'options' => array(
                     'min' => 1,
-                    'max' => 1000,
+                    'max' => get_option('tagging_max_length_total'),
                     'messages' => array(
                         Zend_Validate_StringLength::TOO_SHORT =>
                             __('Proposed tag cannot be empty.'),
                         Zend_Validate_StringLength::TOO_LONG =>
-                            __('Proposed tags cannot be longer than 1000 characters.'),
+                            __('Proposed tags cannot be longer than %d characters.', get_option('tagging_max_length_total')),
                     ),
                 )),
             ),
@@ -73,7 +73,7 @@ class Tagging_TaggingForm extends Omeka_Form
         ));
 
         $this->addElement('submit', 'submit', array(
-            'label' => __('Add'),
+            'label' => __('Tag it'),
         ));
     }
 }

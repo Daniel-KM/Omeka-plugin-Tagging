@@ -96,6 +96,12 @@ class Tagging_IndexController extends Omeka_Controller_AbstractActionController
             if (in_array($sanitizedName, $recordTagsNames)) {
                 continue;
             }
+            // Check size of a tag.
+            if (strlen($sanitizedName) > get_option('tagging_max_length_tag')) {
+                $this->_helper->flashMessenger(__('A proposed tag cannot be longer than %d characters.', get_option('tagging_max_length_tag')), 'error');
+                continue;
+            }
+
             // Check if this tagging is not already saved.
             if (in_array($sanitizedName, $recordTaggingsNames)) {
                 $existingTagging = $recordTaggings[array_search($sanitizedName, $recordTaggingsNames)];

@@ -2,11 +2,33 @@
 <fieldset id="fieldset-tagging-form"><legend><?php echo __('Tagging Form'); ?></legend>
     <div class='field'>
         <div class="two columns alpha">
-            <label><?php echo __("Class to add to the form"); ?></label>
+            <label><?php echo __('Class to add to the form'); ?></label>
         </div>
         <div class='inputs five columns omega'>
             <div class='input-block'>
                 <?php echo $view->formText('tagging_form_class', get_option('tagging_form_class')); ?>
+            </div>
+        </div>
+    </div>
+</fieldset>
+<fieldset id="fieldset-tagging-form"><legend><?php echo __('Proposed Tagging'); ?></legend>
+    <div class='field'>
+        <div class="two columns alpha">
+            <label><?php echo __('Max length of the proposition of tagging'); ?></label>
+        </div>
+        <div class='inputs five columns omega'>
+            <div class='input-block'>
+                <?php echo $view->formText('tagging_max_length_total', get_option('tagging_max_length_total')); ?>
+            </div>
+        </div>
+    </div>
+    <div class='field'>
+        <div class="two columns alpha">
+            <label><?php echo __('Max length of a proposed tag'); ?></label>
+        </div>
+        <div class='inputs five columns omega'>
+            <div class='input-block'>
+                <?php echo $view->formText('tagging_max_length_tag', get_option('tagging_max_length_tag')); ?>
             </div>
         </div>
     </div>
