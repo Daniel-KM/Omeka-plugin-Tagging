@@ -32,6 +32,7 @@
         'admin_items_browse_simple_each',
         'admin_items_browse_detailed_each',
         'admin_items_browse',
+        'admin_items_show_sidebar',
         'public_items_show',
         'after_delete_item',
         'remove_item_tag',
@@ -197,7 +198,9 @@
         $request = Zend_Controller_Front::getInstance()->getRequest();
         $controller = $request->getControllerName();
         $action = $request->getActionName();
-        if ($controller == 'items' && $action == 'browse') {
+        if ($controller == 'items'
+                && ($action == 'browse' || $action == 'show')
+            ) {
             queue_css_file('tagging');
             queue_js_file('tagging');
         }
@@ -227,27 +230,34 @@
 
     public function hookAdminItemsBrowseDetailedEach($args)
     {
-        $view = $args['view'];
         $item = $args['item'];
+        $html = '<p><strong>' . __('Taggings:') . '</strong></p>';
+        $html .= $this->_displayTaggingsOfItem($item);
+        echo $html;
+    }
 
+    private function _displayTaggingsOfItem($item)
+    {
         $html = '';
         $taggings = get_db()->getTable('Tagging')->findByRecord($item);
         if (count($taggings)) {
-            $html .= '<p><strong>' . __('Taggings:') . '</strong></p>';
             $html .= '<ul class="taggings-list">';
             foreach ($taggings as $tagging) {
                 $html .= $this->_displayTaggingForModeration($tagging);
             }
             $html .= '</ul>';
         }
-        echo $html;
+        else {
+            $html .= __('No taggings.');
+        }
+        return $html;
     }
 
     private function _displayTaggingForModeration($tagging)
     {
         $html = '<li>';
         $html .= '<span href="" id="tagging-edit-%d" class="tag-edit-tag">%s</span>';
-        $html .= '<a href="' . ADMIN_BASE_URL . '" id="%d" class="tagging-toggle-status status %s"></a>';
+        $html .= '<a href="' . ADMIN_BASE_URL . '" id="tagging-%d" class="tagging toggle-status status %s"></a>';
         $html .= '</li>';
         $args = array();
         $args[] = $tagging->id;
@@ -260,13 +270,25 @@
     public function hookAdminItemsBrowse($args)
     { ?>
 <script type="text/javascript">
-    var status = {
-        'proposed':'<?php echo __('Proposed'); ?>',
-        'approved':'<?php echo __('Approved'); ?>',
-        'rejected':'<?php echo __('Rejected'); ?>'};
-    Omeka.Taggings.setupUpdate(status);
+    Omeka.messages = jQuery.extend(Omeka.messages,
+        {'tagging':{
+            'proposed':'<?php echo __('Proposed'); ?>',
+            'approved':'<?php echo __('Approved'); ?>',
+            'rejected':'<?php echo __('Rejected'); ?>'
+        }}
+    );
 </script>
     <?php
+    }
+
+    public function hookAdminItemsShowSidebar($args)
+    {
+        $item = $args['item'];
+        $html = '<div class="panel">';
+        $html .= '<h4>' . __('Taggings') . '</h4>';
+        $html .= $this->_displayTaggingsOfItem($item);
+        $html .= '</div>';
+        echo $html;
     }
 
     /**

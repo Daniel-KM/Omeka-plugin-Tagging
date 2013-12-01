@@ -55,7 +55,7 @@ jQuery(window).load(function () {
                     array(
                         'rows' => 5,
                         'cols' => 60,
-                        'class' => array('textinput', 'html-editor')
+                        'class' => array('textinput', 'html-editor'),
                      )
                 ); ?>
                 <p class="explanation">

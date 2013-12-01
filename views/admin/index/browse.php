@@ -73,7 +73,7 @@ echo head(array(
                         case 'rejected': $status = __('Rejected'); break;
                         default: $status = __('Undefined');
                     } ?>
-                    <a href="<?php echo ADMIN_BASE_URL; ?>" id="<?php echo $tagging->id; ?>" class="tagging-toggle-status status <?php echo $tagging->status; ?>"><?php echo $status; ?></span>
+                    <a href="<?php echo ADMIN_BASE_URL; ?>" id="tagging-<?php echo $tagging->id; ?>" class="tagging toggle-status status <?php echo $tagging->status; ?>"><?php echo $status; ?></span>
                 </td>
                 <td>
                     <?php echo html_escape(metadata($tagging, 'added_username')); ?>
@@ -104,13 +104,14 @@ echo head(array(
     <?php echo pagination_links(); ?>
 
     <script type="text/javascript">
-        var status = {
-            'proposed':'<?php echo __('Proposed'); ?>',
-            'approved':'<?php echo __('Approved'); ?>',
-            'rejected':'<?php echo __('Rejected'); ?>',
-            'confirmation':'<?php echo __('Are your sure to remove these taggings?'); ?>'
-        };
-        Omeka.Taggings.setupUpdate(status);
+        Omeka.messages = jQuery.extend(Omeka.messages,
+            {'tagging':{
+                'proposed':'<?php echo __('Proposed'); ?>',
+                'approved':'<?php echo __('Approved'); ?>',
+                'rejected':'<?php echo __('Rejected'); ?>',
+                'confirmation':'<?php echo __('Are your sure to remove these taggings?'); ?>'
+            }}
+        );
         Omeka.addReadyCallback(Omeka.TaggingsBrowse.setupBatchEdit);
     </script>
 

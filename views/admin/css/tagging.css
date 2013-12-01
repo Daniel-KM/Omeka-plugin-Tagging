@@ -9,112 +9,26 @@
     font-family: "Arvo",serif;
     margin: 0;
     padding: 4px 4px 4px 4px;
-/*
-    border: 1px solid #749308;
-    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.5);
-*/
 }
 
-a#batch-delete,
-a#batch-approve,
-a#batch-reject,
-a#batch-report-spam,
-a#batch-report-ham,
-a#batch-flag,
-a#batch-unflag {
-    padding: 3px 2px;
-    margin: 0 0 20px;
-}
-li.delete {
-    float:left;
-    margin-right: 5px;
-}
-form#comment-form {
-    clear:both;
-}
-div.comments {
-
-}
-div.comment-target {
-    margin: 0;
-    padding: 0;
-}
-div.comment-target p {
-    margin: 0;
-    padding; 0;
-}
-div.comment {
-    margin-left: 12px;
-    margin-top: 3px;
-    margin-bottom: 6px;
-    clear: both;
-    min-height: 120px;
-}
-div.comment-author {
-    float: left;
-    margin: 6px;
-    width: 80px;
-}
-div.comment-body {
-    min-height: 60px;
-}
-div.comment-flagged {
-    background-color: #F09999;
-}
-div.comment-body p {
-    font-size: 1em;
-}
-div#commenting-batch-actions {
-    font-size: 1.2em;
-    line-height: 1em;
-    float: left;
-    margin-right: 5px;
-}
-div#commenting-batch-actions a.disabled {
-    opacity: 0.35;
-    cursor: not-allowed;
-}
-ul.comment-admin-menu {
-    padding-left: 20px;
-    margin-top: 0;
-}
-ul.comment-admin-menu li {
-    margin-bottom: .5em;
-    padding-left: 10px;
-    list-style: none;
-}
-ul.comment-admin-menu span {
-    background-repeat: no-repeat;
-}
-input.batch-select-comment {
-    float: left;
-    position: relative;
-    left: -12px;
-}
-a.status,
-span.status {
+a.tagging.status {
     position:relative;
-/*    left: -20px;*/
     padding-left: 20px;
     margin-left: 3px;
     margin-right: 3px;
     cursor: pointer;
 }
-a.proposed,
-span.proposed {
+a.tagging.toggle-status.proposed {
     background: url('../../../../../application/views/scripts/images/silk-icons/error.png') no-repeat scroll 0 0 transparent;
 }
-a.approved,
-span.approved {
+a.tagging.toggle-status.approved {
     background: url('../../../../../application/views/scripts/images/silk-icons/tick.png') no-repeat scroll 0 0 transparent;
 }
-a.rejected,
-span.rejected {
+a.tagging.toggle-status.rejected {
     background: url('../../../../../application/views/scripts/images/silk-icons/cancel.png') no-repeat scroll 0 0 transparent;
 }
-span.transmit,
-a.transmit {
-    background: url('../../shared/images/waiting-mini.gif') no-repeat scroll 0 0 transparent;
+a.tagging.transmit {
+    background: url('../../shared/images/waiting-mini.gif') no-repeat scroll 0 0 transparent !important;
 }
 .action {
     color: #338899;

@@ -61,7 +61,7 @@ jQuery(document).ready(function() {
         jQuery('.batch-edit-option input').prop('disabled', true);
         jQuery('table#taggings tbody input[type=checkbox]:checked').each(function(){
             var checkbox = jQuery(this);
-            var current = jQuery('.' + 'tagging-toggle-status' + '#' + this.value);
+            var current = jQuery('#tagging-' + this.value);
             var ajaxUrl = current.attr('href') + '/tagging/ajax/update';
             current.addClass('transmit');
             jQuery.post(ajaxUrl,
@@ -75,7 +75,7 @@ jQuery(document).ready(function() {
                     current.removeClass('rejected');
                     current.removeClass('transmit');
                     if (current.text() != '') {
-                        current.text(current.data('status').approved);
+                        current.text(Omeka.messages.tagging.approved);
                     }
                 }
             );
@@ -89,7 +89,7 @@ jQuery(document).ready(function() {
         jQuery('.batch-edit-option input').prop('disabled', true);
         jQuery('table#taggings tbody input[type=checkbox]:checked').each(function(){
             var checkbox = jQuery(this);
-            var current = jQuery('.' + 'tagging-toggle-status' + '#' + this.value);
+            var current = jQuery('#tagging-' + this.value);
             var ajaxUrl = current.attr('href') + '/tagging/ajax/update';
             current.addClass('transmit');
             jQuery.post(ajaxUrl,
@@ -103,7 +103,7 @@ jQuery(document).ready(function() {
                     current.removeClass('approved');
                     current.removeClass('transmit');
                     if (current.text() != '') {
-                        current.text(current.data('status').rejected);
+                        current.text(Omeka.messages.tagging.rejected);
                     }
                 }
             );
@@ -113,7 +113,7 @@ jQuery(document).ready(function() {
     // Delete a tagging..
     jQuery('input[name="submit-batch-delete"]').click(function(event) {
         event.preventDefault();
-        if (!confirm(jQuery('table#taggings tbody a.tagging-toggle-status').data('status').confirmation)) {
+        if (!confirm(Omeka.messages.tagging.confirmation)) {
             return;
         }
         jQuery('table#taggings thead tr th.batch-edit-heading input').attr('checked', false);
@@ -121,7 +121,7 @@ jQuery(document).ready(function() {
         jQuery('table#taggings tbody input[type=checkbox]:checked').each(function(){
             var checkbox = jQuery(this);
             var row = jQuery(this).closest('tr.tagging');
-            var current = jQuery('.' + 'tagging-toggle-status' + '#' + this.value);
+            var current = jQuery('#tagging-' + this.value);
             var ajaxUrl = current.attr('href') + '/tagging/ajax/delete';
             checkbox.addClass('transmit');
             jQuery.post(ajaxUrl,

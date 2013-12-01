@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-27 21:22+0100\n"
+"POT-Creation-Date: 2013-12-01 21:39+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,39 +17,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: TaggingPlugin.php:101
+#: TaggingPlugin.php:101 TaggingPlugin.php:102
 #, php-format
 msgid ""
 "I agree with %s terms of use %s and I accept to free my contribution under "
 "the licence %s CC BY-SA %s."
 msgstr ""
 
-#: TaggingPlugin.php:220
+#: TaggingPlugin.php:220 TaggingPlugin.php:223
 msgid "No proposed taggings"
 msgstr ""
 
-#: TaggingPlugin.php:224
+#: TaggingPlugin.php:224 TaggingPlugin.php:227
 #, php-format
 msgid "Taggings: %d proposed (%d not moderated)"
 msgstr ""
 
-#: TaggingPlugin.php:236
+#: TaggingPlugin.php:236 TaggingPlugin.php:234
 msgid "Taggings:"
 msgstr ""
 
-#: TaggingPlugin.php:264
+#: TaggingPlugin.php:264 TaggingPlugin.php:275
 msgid "Proposed"
 msgstr ""
 
-#: TaggingPlugin.php:265
+#: TaggingPlugin.php:265 TaggingPlugin.php:276
 msgid "Approved"
 msgstr ""
 
-#: TaggingPlugin.php:266
+#: TaggingPlugin.php:266 TaggingPlugin.php:277
 msgid "Rejected"
 msgstr ""
 
-#: TaggingPlugin.php:317
+#: TaggingPlugin.php:317 TaggingPlugin.php:288 TaggingPlugin.php:339
 msgid "Taggings"
 msgstr ""
 
@@ -140,4 +140,8 @@ msgstr ""
 
 #: models/Tagging.php:121
 msgid "Anonymous"
+msgstr ""
+
+#: TaggingPlugin.php:251
+msgid "No taggings."
 msgstr ""
