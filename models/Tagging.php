@@ -27,15 +27,22 @@ class Tagging extends Omeka_Record_AbstractRecord implements Zend_Acl_Resource_I
      */
     protected function afterSave($args)
     {
-        if ($this->status == 'approved') {
-            $item = get_record_by_id($this->record_type, $this->record_id);
-            $item->addTags($this->name);
-            $item->save();
-        }
-        elseif ($this->status == 'rejected') {
-            $item = get_record_by_id($this->record_type, $this->record_id);
-            $item->deleteTags($this->name);
-            $item->save();
+        switch ($this->status) {
+            case 'proposed':
+                break;
+
+            case 'allowed':
+            case 'approved':
+                $item = get_record_by_id($this->record_type, $this->record_id);
+                $item->addTags($this->name);
+                $item->save();
+                break;
+
+            case 'rejected':
+                $item = get_record_by_id($this->record_type, $this->record_id);
+                $item->deleteTags($this->name);
+                $item->save();
+                break;
         }
     }
 
@@ -71,7 +78,7 @@ class Tagging extends Omeka_Record_AbstractRecord implements Zend_Acl_Resource_I
         if ($this->name == '') {
             $this->addError('name', __("Can't leave an empty tag!"));
         }
-        if (!in_array($this->status, array('proposed', 'approved', 'rejected'))) {
+        if (!in_array($this->status, array('proposed', 'allowed', 'approved', 'rejected'))) {
             $this->addError('status', __('This status is not authorized.'));
         }
         if (empty($this->record_type)) {

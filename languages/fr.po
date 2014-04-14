@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-01 21:39+0100\n"
-"PO-Revision-Date: 2013-12-01 21:42+0100\n"
+"POT-Creation-Date: 2014-04-14 10:17+0200\n"
+"PO-Revision-Date: 2014-04-14 10:18+0100\n"
 "Last-Translator: Daniel Berthereau <Daniel.fr@Berthereau.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: Français\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
-"Language: Français\n"
 
-#: TaggingPlugin.php:101 TaggingPlugin.php:102
+#: TaggingPlugin.php:101 TaggingPlugin.php:102 TaggingPlugin.php:103
 #, php-format
 msgid ""
 "I agree with %s terms of use %s and I accept to free my contribution under "
@@ -26,54 +26,61 @@ msgstr ""
 "J'approuve les %s conditions générales d'utilisation %s et j'accepte de "
 "libérer ma contribution sous licence %s CC BY-SA %s."
 
-#: TaggingPlugin.php:220 TaggingPlugin.php:223
+#: TaggingPlugin.php:220 TaggingPlugin.php:223 TaggingPlugin.php:245
 msgid "No proposed taggings"
 msgstr "Aucune proposition de mots-clés"
 
-#: TaggingPlugin.php:224 TaggingPlugin.php:227
+#: TaggingPlugin.php:224 TaggingPlugin.php:227 TaggingPlugin.php:249
 #, php-format
 msgid "Taggings: %d proposed (%d not moderated)"
 msgstr "Taguages : %d proposés (%d non modérés)"
 
-#: TaggingPlugin.php:236 TaggingPlugin.php:234
+#: TaggingPlugin.php:236 TaggingPlugin.php:234 TaggingPlugin.php:256
 msgid "Taggings:"
 msgstr "Taguages :"
 
-#: TaggingPlugin.php:264 TaggingPlugin.php:275
+#: TaggingPlugin.php:264 TaggingPlugin.php:275 TaggingPlugin.php:297
+#: views/admin/index/browse.php:72 views/admin/index/browse.php:111
+#: views/admin/common/quick-filters.php:8
 msgid "Proposed"
 msgstr "Proposé"
 
-#: TaggingPlugin.php:265 TaggingPlugin.php:276
+#: TaggingPlugin.php:265 TaggingPlugin.php:276 TaggingPlugin.php:299
+#: views/admin/index/browse.php:74 views/admin/index/browse.php:113
+#: views/admin/common/quick-filters.php:10
 msgid "Approved"
 msgstr "Approuvé"
 
-#: TaggingPlugin.php:266 TaggingPlugin.php:277
+#: TaggingPlugin.php:266 TaggingPlugin.php:277 TaggingPlugin.php:300
+#: views/admin/index/browse.php:75 views/admin/index/browse.php:114
+#: views/admin/common/quick-filters.php:11
 msgid "Rejected"
 msgstr "Rejeté"
 
 #: TaggingPlugin.php:317 TaggingPlugin.php:288 TaggingPlugin.php:339
+#: TaggingPlugin.php:311 TaggingPlugin.php:362
 msgid "Taggings"
 msgstr "Taguages"
 
-#: controllers/IndexController.php:38
+#: controllers/IndexController.php:38 controllers/IndexController.php:41
 msgid "This record does not accept tags."
 msgstr "Cette notice n'accepte pas les mots-clés."
 
-#: controllers/IndexController.php:45
+#: controllers/IndexController.php:45 controllers/IndexController.php:48
 msgid "Record does not exist."
 msgstr "Cette notice n'existe pas."
 
-#: controllers/IndexController.php:101
+#: controllers/IndexController.php:101 controllers/IndexController.php:113
 #, php-format
 msgid "A proposed tag cannot be longer than %d characters."
 msgstr "Un mot-clé ne peut pas avoir plus de %d caractères."
 
-#: controllers/IndexController.php:127
+#: controllers/IndexController.php:127 controllers/IndexController.php:139
 #, php-format
 msgid "Proposed tags \"%s\" have been approved."
 msgstr "Les mots-clés proposés \"%s\" n'ont pas été approuvés."
 
-#: controllers/IndexController.php:130
+#: controllers/IndexController.php:130 controllers/IndexController.php:142
 #, php-format
 msgid ""
 "Your proposition \"%s\"  is already proposed or is not correctly formatted."
@@ -81,74 +88,241 @@ msgstr ""
 "Votre proposition \"%s\" a déjà été proposée ou n'est pas correctement "
 "formatée."
 
-#: controllers/IndexController.php:134
+#: controllers/IndexController.php:134 controllers/IndexController.php:146
 #, php-format
 msgid "Your proposition \"%s\" is awaiting approbation."
 msgstr "Votre proposition \"%s\" est en attente d'approbation."
 
-#: controllers/IndexController.php:141
+#: controllers/IndexController.php:141 controllers/IndexController.php:153
 #, php-format
 msgid "Your tag \"%s\" have been added."
 msgstr "Votre mot-clé \"%s\" a été ajouté."
 
-#: controllers/IndexController.php:144
+#: controllers/IndexController.php:144 controllers/IndexController.php:156
 #, php-format
 msgid "Your tags \"%s\" have been added."
 msgstr "Vos mots-clés \"%s\" ont été ajoutés."
 
-#: forms/TaggingForm.php:13
+#: forms/TaggingForm.php:13 forms/TaggingForm.php:32
 msgid "Add Tags"
 msgstr "Ajouter des mots-clés"
 
-#: forms/TaggingForm.php:14
+#: forms/TaggingForm.php:14 forms/TaggingForm.php:33
 #, php-format
 msgid "Separe multiple tags with a \"%s\"."
 msgstr "Séparer les mots-clés avec \"%s\"."
 
-#: forms/TaggingForm.php:26
+#: forms/TaggingForm.php:26 forms/TaggingForm.php:45
 msgid "Proposed tag cannot be empty."
 msgstr "Le mot-clé proposé ne peut pas être vide."
 
-#: forms/TaggingForm.php:28
+#: forms/TaggingForm.php:28 forms/TaggingForm.php:47
 #, php-format
 msgid "Proposed tags cannot be longer than %d characters."
 msgstr "La proposition de mot-clés ne peut pas avoir plus de %d caractères."
 
-#: forms/TaggingForm.php:39
+#: forms/TaggingForm.php:39 forms/TaggingForm.php:58
 msgid "Please verify you're a human"
 msgstr "Merci de vérifier que vous êtes une personne."
 
-#: forms/TaggingForm.php:63
+#: forms/TaggingForm.php:63 forms/TaggingForm.php:82
 msgid "You must agree to the terms and conditions."
 msgstr "Vous devez approuver les conditions générales d'utilisation."
 
-#: forms/TaggingForm.php:92
+#: forms/TaggingForm.php:92 forms/TaggingForm.php:115
 msgid "Tag it"
 msgstr "Taguer"
 
-#: models/Tagging.php:72
+#: models/Tagging.php:72 models/Tagging.php:79
 msgid "Can't leave an empty tag!"
 msgstr "Impossible d'enregistrer un mot-clé vide."
 
-#: models/Tagging.php:75
+#: models/Tagging.php:75 models/Tagging.php:82
 msgid "This status is not authorized."
 msgstr "Ce statut n'est pas autorisé."
 
-#: models/Tagging.php:78
+#: models/Tagging.php:78 models/Tagging.php:85
 msgid "Record type cannot be empty."
 msgstr "Le type de notice ne peut pas être vide."
 
-#: models/Tagging.php:81
+#: models/Tagging.php:81 models/Tagging.php:88
 msgid "Record id cannot be empty."
 msgstr "L'identifiant de notice ne peut pas être vide."
 
-#: models/Tagging.php:121
+#: models/Tagging.php:121 models/Tagging.php:128
 msgid "Anonymous"
 msgstr "Anonyme"
 
-#: TaggingPlugin.php:251
+#: TaggingPlugin.php:251 TaggingPlugin.php:273
 msgid "No taggings."
 msgstr "Pas de taguages."
+
+#: TaggingPlugin.php:298 views/admin/index/browse.php:73
+#: views/admin/index/browse.php:112 views/admin/common/quick-filters.php:9
+msgid "Allowed"
+msgstr "Autorisé"
+
+#: views/admin/index/browse.php:2
+#, php-format
+msgid "Taggings (%d total)"
+msgstr "Taguages (%d total)"
+
+#: views/admin/index/browse.php:13
+msgid "security settings"
+msgstr "paramètres de sécurité"
+
+#: views/admin/index/browse.php:13
+#, php-format
+msgid ""
+"You have not entered your %s API keys under %s. We recommend adding these "
+"keys, or the tagging form will be vulnerable to spam."
+msgstr ""
+"Vous n'avez pas indiqué vos clés API %s sous %s. Nous recommandons d'ajouter "
+"ces clés, ou le taguage sera vulnérable au spam."
+
+#: views/admin/index/browse.php:15
+#, php-format
+msgid "Use <a href=\"%s\">items page</a> to manage taggings by item."
+msgstr ""
+"Utiliser la <a href=\"%s\">page des documents</a> pour gérer les taguages "
+"par document."
+
+#: views/admin/index/browse.php:23 views/admin/index/browse.php:93
+msgid "Approve"
+msgstr "Approuver"
+
+#: views/admin/index/browse.php:26 views/admin/index/browse.php:96
+msgid "Reject"
+msgstr "Rejeter"
+
+#: views/admin/index/browse.php:29 views/admin/index/browse.php:99
+msgid "Delete"
+msgstr "Supprimer"
+
+#: views/admin/index/browse.php:39
+msgid "Select"
+msgstr "Sélectionner"
+
+#: views/admin/index/browse.php:43
+msgid "Title"
+msgstr "Titre"
+
+#: views/admin/index/browse.php:44
+msgid "Tag"
+msgstr "Taguer"
+
+#: views/admin/index/browse.php:45
+msgid "Status"
+msgstr "Statut"
+
+#: views/admin/index/browse.php:46
+msgid "User"
+msgstr "Utilisateur"
+
+#: views/admin/index/browse.php:47
+msgid "Date Added"
+msgstr "Date d'ajout"
+
+#: views/admin/index/browse.php:76
+msgid "Undefined"
+msgstr "Indéfini"
+
+#: views/admin/index/browse.php:115
+msgid "Are your sure to remove these taggings?"
+msgstr "Êtes-vous sûr de supprimer ces taguages ?"
+
+#: views/admin/index/browse.php:123
+msgid "There is no tagging yet."
+msgstr "Il n'y a encore aucun taguage."
+
+#: views/admin/index/browse.php:125
+#, php-format
+msgid "The query searched %d items and returned no results."
+msgstr "La requête a cherché parmi %d éléments et n'a retourné aucun résultat."
+
+#: views/admin/index/browse.php:126
+msgid "See all taggings."
+msgstr "Voir tous les taguages."
+
+#: views/admin/plugins/tagging-config-form.php:11
+msgid "Tagging Form"
+msgstr "Formulaire de taguage"
+
+#: views/admin/plugins/tagging-config-form.php:14
+msgid "Class to add to the form"
+msgstr "Classe à ajouter au formulaire"
+
+#: views/admin/plugins/tagging-config-form.php:23
+msgid "Proposed Tagging"
+msgstr "Taguages proposés"
+
+#: views/admin/plugins/tagging-config-form.php:26
+msgid "Max length of the proposition of tagging"
+msgstr "Longueur maximale d'une proposition de tags"
+
+#: views/admin/plugins/tagging-config-form.php:36
+msgid "Max length of a proposed tag"
+msgstr "Longueur maximale d'un tag"
+
+#: views/admin/plugins/tagging-config-form.php:45
+msgid "Public Rights"
+msgstr "Droits public"
+
+#: views/admin/plugins/tagging-config-form.php:48
+msgid "Legal agreement"
+msgstr "Conditions d'utilisation"
+
+#: views/admin/plugins/tagging-config-form.php:62
+msgid "This text will be shown beside the legal checkbox."
+msgstr ""
+"Ce texte sera montré à côté de la case à cocher d'acceptation des conditions "
+"d'utilisation."
+
+#: views/admin/plugins/tagging-config-form.php:63
+msgid "Let empty if you don't want to use a legal agreement."
+msgstr ""
+"Laisser vide si vous ne voulez pas afficher de conditions d'utilisation."
+
+#: views/admin/plugins/tagging-config-form.php:76
+msgid "Allow public to tag"
+msgstr "Autoriser le public à taguer"
+
+#: views/admin/plugins/tagging-config-form.php:88
+msgid "Require approbation for public tags"
+msgstr "Modération obligatoire pour les tags publics"
+
+#: views/admin/plugins/tagging-config-form.php:93
+msgid "Roles"
+msgstr "Roles"
+
+#: views/admin/plugins/tagging-config-form.php:96
+msgid "Roles that can tag"
+msgstr "Roles qui peuvent taguer"
+
+#: views/admin/plugins/tagging-config-form.php:120
+msgid "Roles that require moderation"
+msgstr "Roles qui requièrent une modération"
+
+#: views/admin/plugins/tagging-config-form.php:144
+msgid "Roles that can moderate"
+msgstr "Roles qui peuvent modérer"
+
+#: views/admin/common/quick-filters.php:2
+#: views/admin/common/quick-filters.php:4
+msgid "Quick Filter"
+msgstr "Filtre rapide"
+
+#: views/admin/common/quick-filters.php:5
+msgid "View All"
+msgstr "Tout voir"
+
+#: views/admin/common/quick-filters.php:6
+msgid "Not moderated"
+msgstr "Non modérés"
+
+#: views/admin/common/quick-filters.php:7
+msgid "Moderated"
+msgstr "Modérés"
 
 #~ msgid "Add"
 #~ msgstr "Ajouter"

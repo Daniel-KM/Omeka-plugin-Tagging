@@ -6,8 +6,14 @@
  */
 class Tagging_AjaxController extends Omeka_Controller_AbstractActionController
 {
+    /**
+     * Controller-wide initialization. Sets the underlying model to use.
+     */
     public function init()
     {
+        // Don't render the view script.
+        $this->_helper->viewRenderer->setNoRender(true);
+
         $this->_helper->db->setDefaultModelName('Tagging');
     }
 
@@ -23,7 +29,7 @@ class Tagging_AjaxController extends Omeka_Controller_AbstractActionController
         // Handle action.
         try {
             $status = $this->_getParam('status');
-            if (!in_array($status, array('proposed', 'approved', 'rejected'))) {
+            if (!in_array($status, array('proposed', 'allowed', 'approved', 'rejected'))) {
                 $this->getResponse()->setHttpResponseCode(400);
                 return;
             }
@@ -66,18 +72,14 @@ class Tagging_AjaxController extends Omeka_Controller_AbstractActionController
     /**
      * Check AJAX requests.
      *
-     *
-     * 403 Forbidden
      * 400 Bad Request
+     * 403 Forbidden
      * 500 Internal Server Error
      *
      * @param string $action
      */
     protected function _checkAjax($action)
     {
-        // Don't render the view script.
-        $this->_helper->viewRenderer->setNoRender(true);
-
         // Only allow AJAX requests.
         $request = $this->getRequest();
         if (!$request->isXmlHttpRequest()) {

@@ -4,7 +4,7 @@
  *
  * Allows users to add tags with or without approbation to create a folksonomy.
  *
- * @copyright Copyright Daniel Berthereau, 2013
+ * @copyright Copyright Daniel Berthereau, 2013-2014
  * @license http://www.cecill.info/licences/Licence_CeCILL_V2.1-en.txt
  * @package Tagging
  *
@@ -23,6 +23,7 @@
     protected $_hooks = array(
         'initialize',
         'install',
+        'upgrade',
         'uninstall',
         'config_form',
         'config',
@@ -85,7 +86,7 @@
             `record_type` varchar(50) collate utf8_unicode_ci NOT NULL DEFAULT '',
             `record_id` int unsigned NOT NULL,
             `name` varchar(255) collate utf8_unicode_ci NOT NULL DEFAULT '',
-            `status` enum('proposed', 'approved', 'rejected') NOT NULL DEFAULT 'proposed',
+            `status` enum('proposed', 'allowed', 'approved', 'rejected') NOT NULL DEFAULT 'proposed',
             `user_id` int(11) DEFAULT NULL,
             `ip` tinytext COLLATE utf8_unicode_ci,
             `user_agent` tinytext COLLATE utf8_unicode_ci,
@@ -100,8 +101,8 @@
 
         $html = '<p>';
         $html .= __('I agree with %s terms of use %s and I accept to free my contribution under the licence %s CC BY-SA %s.',
-            '<a href="#" target="_blank">', '</a>',
-            '<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank">', '</a>'
+            '<a rel="licence" href="#" target="_blank">', '</a>',
+            '<a rel="licence" href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank">', '</a>'
         );
         $html .= '</p>';
         $this->_options['tagging_legal_text'] = $html;
@@ -110,11 +111,29 @@
     }
 
     /**
+     * Upgrade the plugin.
+     */
+    public function hookUpgrade($args)
+    {
+        $oldVersion = $args['old_version'];
+        $newVersion = $args['new_version'];
+        $db = $this->_db;
+
+        if (version_compare($oldVersion, '2.1', '<')) {
+            $sql = "
+                ALTER TABLE `{$db->Tagging}`
+                CHANGE `status` `status` enum('proposed', 'allowed', 'approved', 'rejected') COLLATE 'utf8_unicode_ci' NOT NULL DEFAULT 'proposed' AFTER `name`
+            ";
+            $db->query($sql);
+        }
+    }
+
+    /**
      * Uninstall the plugin.
      */
     public function hookUninstall()
     {
-        $db = get_db();
+        $db = $this->_db;
         $sql = "DROP TABLE IF EXISTS `$db->Tagging`";
         $db->query($sql);
 
@@ -141,13 +160,16 @@
     public function hookConfig($args)
     {
         $post = $args['post'];
+        foreach (array(
+                'tagging_tag_roles',
+                'tagging_require_moderation_roles',
+                'tagging_moderate_roles',
+            ) as $posted) {
+            $post[$posted] = isset($post[$posted])
+                ? serialize($post[$posted])
+                : serialize(array());
+        }
         foreach ($post as $key => $value) {
-            if (($key == 'tagging_tag_roles') ||
-                ($key == 'tagging_require_moderation_roles') ||
-                ($key == 'tagging_moderate_roles')
-            ) {
-                $value = serialize($value);
-            }
             set_option($key, $value);
         }
     }
@@ -272,9 +294,10 @@
 <script type="text/javascript">
     Omeka.messages = jQuery.extend(Omeka.messages,
         {'tagging':{
-            'proposed':'<?php echo __('Proposed'); ?>',
-            'approved':'<?php echo __('Approved'); ?>',
-            'rejected':'<?php echo __('Rejected'); ?>'
+            'proposed':<?php echo json_encode(__('Proposed')); ?>,
+            'allowed':<?php echo json_encode(__('Allowed')); ?>,
+            'approved':<?php echo json_encode(__('Approved')); ?>,
+            'rejected':<?php echo json_encode(__('Rejected')); ?>
         }}
     );
 </script>

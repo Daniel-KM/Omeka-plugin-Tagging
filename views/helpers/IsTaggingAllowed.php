@@ -11,6 +11,8 @@ class Tagging_View_Helper_IsTaggingAllowed extends Zend_View_Helper_Abstract
         static $isAllowed = null;
         if (is_null($isAllowed)) {
             $request = Zend_Controller_Front::getInstance()->getRequest();
+            // TODO Set this in config form.
+            // if (($request->getControllerName() == 'items' || $request->getControllerName() == 'files' )
             if ($request->getControllerName() == 'items'
                 && $request->getActionName() == 'show'
                 && ((get_option('tagging_public_allow_tag') == 1)

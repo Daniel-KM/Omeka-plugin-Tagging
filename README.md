@@ -18,7 +18,7 @@ Uncompress files and rename plugin folder "Tagging".
 
 Then install it like any other Omeka plugin and follow the config instructions.
 
-The Tagging plugin can uses Omeka ReCaptchas. You need to get keys to this
+The Tagging plugin can use Omeka ReCaptchas. You need to get keys to this
 service and set them in the general preferences.
 
 The plugin can use [GuestUser] if it is installed.
@@ -90,7 +90,7 @@ First version of this plugin has been built for [Mines ParisTech].
 Copyright
 ---------
 
-* Copyright Daniel Berthereau, 2013
+* Copyright Daniel Berthereau, 2013-2014
 
 
 [Omeka]: https://omeka.org "Omeka.org"

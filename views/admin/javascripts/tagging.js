@@ -15,6 +15,8 @@ jQuery(document).ready(function() {
                 },
                 function(data) {
                     current.addClass('rejected');
+                    current.removeClass('proposed');
+                    current.removeClass('allowed');
                     current.removeClass('approved');
                     current.removeClass('transmit');
                     if (current.text() != '') {
@@ -30,6 +32,8 @@ jQuery(document).ready(function() {
                 },
                 function(data) {
                     current.addClass('approved');
+                    current.removeClass('proposed');
+                    current.removeClass('allowed');
                     current.removeClass('rejected');
                     current.removeClass('transmit');
                     if (current.text() != '') {

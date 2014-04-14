@@ -2,9 +2,28 @@
 
 class Tagging_TaggingForm extends Omeka_Form
 {
+    protected $_record;
+
+    /**
+     * Constructor
+     *
+     * Registers form view helper as decorator
+     *
+     * @param mixed $options
+     * @return void
+     */
+    public function __construct($record = null)
+    {
+        $this->_record = $record;
+
+        parent::__construct();
+    }
+
+
     public function init()
     {
         parent::init();
+
         $this->setAction(WEB_ROOT . '/tagging/index/add');
         $this->setAttrib('id', 'tagging-form');
         $user = current_user();
@@ -70,8 +89,12 @@ class Tagging_TaggingForm extends Omeka_Form
 
         // Add some hidden fields to simplify redirection.
         $request = Zend_Controller_Front::getInstance()->getRequest();
-        $record_type = ucfirst(Inflector::singularize($request->getControllerName()));
-        $record_id = $request->getParam('id');
+        $record_type = empty($this->_record)
+            ? ucfirst(Inflector::singularize($request->getControllerName()))
+            : get_class($this->_record);
+        $record_id = empty($this->_record)
+            ? $request->getParam('id')
+            : $this->_record->id;
         $this->addElement('hidden', 'path', array(
             'value' => $request->getPathInfo(),
             'hidden' => true,

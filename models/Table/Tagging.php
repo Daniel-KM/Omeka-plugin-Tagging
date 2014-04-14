@@ -192,7 +192,7 @@ class Table_Tagging extends Omeka_Db_Table
                             $this->filterByStatus($select, array('approved', 'rejected'));
                             break;
                         case 'not moderated':
-                            $this->filterByStatus($select, 'proposed');
+                            $this->filterByStatus($select, array('proposed', 'allowed'));
                             break;
                         default:
                             $this->filterByStatus($select, $value);

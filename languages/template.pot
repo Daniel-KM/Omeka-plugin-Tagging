@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-01 21:39+0100\n"
+"POT-Creation-Date: 2014-04-14 10:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,131 +17,343 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: TaggingPlugin.php:101 TaggingPlugin.php:102
+#: TaggingPlugin.php:101 TaggingPlugin.php:102 TaggingPlugin.php:103
+#: TaggingPlugin.php:103
 #, php-format
 msgid ""
 "I agree with %s terms of use %s and I accept to free my contribution under "
 "the licence %s CC BY-SA %s."
 msgstr ""
 
-#: TaggingPlugin.php:220 TaggingPlugin.php:223
+#: TaggingPlugin.php:220 TaggingPlugin.php:223 TaggingPlugin.php:245
+#: TaggingPlugin.php:245
 msgid "No proposed taggings"
 msgstr ""
 
-#: TaggingPlugin.php:224 TaggingPlugin.php:227
+#: TaggingPlugin.php:224 TaggingPlugin.php:227 TaggingPlugin.php:249
+#: TaggingPlugin.php:249
 #, php-format
 msgid "Taggings: %d proposed (%d not moderated)"
 msgstr ""
 
-#: TaggingPlugin.php:236 TaggingPlugin.php:234
+#: TaggingPlugin.php:236 TaggingPlugin.php:234 TaggingPlugin.php:256
+#: TaggingPlugin.php:256
 msgid "Taggings:"
 msgstr ""
 
-#: TaggingPlugin.php:264 TaggingPlugin.php:275
+#: TaggingPlugin.php:264 TaggingPlugin.php:275 TaggingPlugin.php:297
+#: views/admin/index/browse.php:72 views/admin/index/browse.php:111
+#: views/admin/common/quick-filters.php:8 TaggingPlugin.php:297
+#: views/admin/index/browse.php:72 views/admin/index/browse.php:111
+#: views/admin/common/quick-filters.php:8
 msgid "Proposed"
 msgstr ""
 
-#: TaggingPlugin.php:265 TaggingPlugin.php:276
+#: TaggingPlugin.php:265 TaggingPlugin.php:276 TaggingPlugin.php:299
+#: views/admin/index/browse.php:74 views/admin/index/browse.php:113
+#: views/admin/common/quick-filters.php:10 TaggingPlugin.php:299
+#: views/admin/index/browse.php:74 views/admin/index/browse.php:113
+#: views/admin/common/quick-filters.php:10
 msgid "Approved"
 msgstr ""
 
-#: TaggingPlugin.php:266 TaggingPlugin.php:277
+#: TaggingPlugin.php:266 TaggingPlugin.php:277 TaggingPlugin.php:300
+#: views/admin/index/browse.php:75 views/admin/index/browse.php:114
+#: views/admin/common/quick-filters.php:11 TaggingPlugin.php:300
+#: views/admin/index/browse.php:75 views/admin/index/browse.php:114
+#: views/admin/common/quick-filters.php:11
 msgid "Rejected"
 msgstr ""
 
 #: TaggingPlugin.php:317 TaggingPlugin.php:288 TaggingPlugin.php:339
+#: TaggingPlugin.php:311 TaggingPlugin.php:362 TaggingPlugin.php:311
+#: TaggingPlugin.php:362
 msgid "Taggings"
 msgstr ""
 
-#: controllers/IndexController.php:38
+#: controllers/IndexController.php:38 controllers/IndexController.php:41
+#: controllers/IndexController.php:41
 msgid "This record does not accept tags."
 msgstr ""
 
-#: controllers/IndexController.php:45
+#: controllers/IndexController.php:45 controllers/IndexController.php:48
+#: controllers/IndexController.php:48
 msgid "Record does not exist."
 msgstr ""
 
-#: controllers/IndexController.php:101
+#: controllers/IndexController.php:101 controllers/IndexController.php:113
+#: controllers/IndexController.php:113
 #, php-format
 msgid "A proposed tag cannot be longer than %d characters."
 msgstr ""
 
-#: controllers/IndexController.php:127
+#: controllers/IndexController.php:127 controllers/IndexController.php:139
+#: controllers/IndexController.php:139
 #, php-format
 msgid "Proposed tags \"%s\" have been approved."
 msgstr ""
 
-#: controllers/IndexController.php:130
+#: controllers/IndexController.php:130 controllers/IndexController.php:142
+#: controllers/IndexController.php:142
 #, php-format
 msgid ""
 "Your proposition \"%s\"  is already proposed or is not correctly formatted."
 msgstr ""
 
-#: controllers/IndexController.php:134
+#: controllers/IndexController.php:134 controllers/IndexController.php:146
+#: controllers/IndexController.php:146
 #, php-format
 msgid "Your proposition \"%s\" is awaiting approbation."
 msgstr ""
 
-#: controllers/IndexController.php:141
+#: controllers/IndexController.php:141 controllers/IndexController.php:153
+#: controllers/IndexController.php:153
 #, php-format
 msgid "Your tag \"%s\" have been added."
 msgstr ""
 
-#: controllers/IndexController.php:144
+#: controllers/IndexController.php:144 controllers/IndexController.php:156
+#: controllers/IndexController.php:156
 #, php-format
 msgid "Your tags \"%s\" have been added."
 msgstr ""
 
-#: forms/TaggingForm.php:13
+#: forms/TaggingForm.php:13 forms/TaggingForm.php:32 forms/TaggingForm.php:32
 msgid "Add Tags"
 msgstr ""
 
-#: forms/TaggingForm.php:14
+#: forms/TaggingForm.php:14 forms/TaggingForm.php:33 forms/TaggingForm.php:33
 #, php-format
 msgid "Separe multiple tags with a \"%s\"."
 msgstr ""
 
-#: forms/TaggingForm.php:26
+#: forms/TaggingForm.php:26 forms/TaggingForm.php:45 forms/TaggingForm.php:45
 msgid "Proposed tag cannot be empty."
 msgstr ""
 
-#: forms/TaggingForm.php:28
+#: forms/TaggingForm.php:28 forms/TaggingForm.php:47 forms/TaggingForm.php:47
 #, php-format
 msgid "Proposed tags cannot be longer than %d characters."
 msgstr ""
 
-#: forms/TaggingForm.php:39
+#: forms/TaggingForm.php:39 forms/TaggingForm.php:58 forms/TaggingForm.php:58
 msgid "Please verify you're a human"
 msgstr ""
 
-#: forms/TaggingForm.php:63
+#: forms/TaggingForm.php:63 forms/TaggingForm.php:82 forms/TaggingForm.php:82
 msgid "You must agree to the terms and conditions."
 msgstr ""
 
-#: forms/TaggingForm.php:92
+#: forms/TaggingForm.php:92 forms/TaggingForm.php:115
+#: forms/TaggingForm.php:115
 msgid "Tag it"
 msgstr ""
 
-#: models/Tagging.php:72
+#: models/Tagging.php:72 models/Tagging.php:79 models/Tagging.php:79
 msgid "Can't leave an empty tag!"
 msgstr ""
 
-#: models/Tagging.php:75
+#: models/Tagging.php:75 models/Tagging.php:82 models/Tagging.php:82
 msgid "This status is not authorized."
 msgstr ""
 
-#: models/Tagging.php:78
+#: models/Tagging.php:78 models/Tagging.php:85 models/Tagging.php:85
 msgid "Record type cannot be empty."
 msgstr ""
 
-#: models/Tagging.php:81
+#: models/Tagging.php:81 models/Tagging.php:88 models/Tagging.php:88
 msgid "Record id cannot be empty."
 msgstr ""
 
-#: models/Tagging.php:121
+#: models/Tagging.php:121 models/Tagging.php:128 models/Tagging.php:128
 msgid "Anonymous"
 msgstr ""
 
-#: TaggingPlugin.php:251
+#: TaggingPlugin.php:251 TaggingPlugin.php:273 TaggingPlugin.php:273
 msgid "No taggings."
+msgstr ""
+
+#: TaggingPlugin.php:298 views/admin/index/browse.php:73
+#: views/admin/index/browse.php:112 views/admin/common/quick-filters.php:9
+#: TaggingPlugin.php:298 views/admin/index/browse.php:73
+#: views/admin/index/browse.php:112 views/admin/common/quick-filters.php:9
+msgid "Allowed"
+msgstr ""
+
+#: views/admin/index/browse.php:2 views/admin/index/browse.php:2
+#, php-format
+msgid "Taggings (%d total)"
+msgstr ""
+
+#: views/admin/index/browse.php:13 views/admin/index/browse.php:13
+msgid "security settings"
+msgstr ""
+
+#: views/admin/index/browse.php:13 views/admin/index/browse.php:13
+#, php-format
+msgid ""
+"You have not entered your %s API keys under %s. We recommend adding these "
+"keys, or the tagging form will be vulnerable to spam."
+msgstr ""
+
+#: views/admin/index/browse.php:15 views/admin/index/browse.php:15
+#, php-format
+msgid "Use <a href=\"%s\">items page</a> to manage taggings by item."
+msgstr ""
+
+#: views/admin/index/browse.php:23 views/admin/index/browse.php:93
+#: views/admin/index/browse.php:23 views/admin/index/browse.php:93
+msgid "Approve"
+msgstr ""
+
+#: views/admin/index/browse.php:26 views/admin/index/browse.php:96
+#: views/admin/index/browse.php:26 views/admin/index/browse.php:96
+msgid "Reject"
+msgstr ""
+
+#: views/admin/index/browse.php:29 views/admin/index/browse.php:99
+#: views/admin/index/browse.php:29 views/admin/index/browse.php:99
+msgid "Delete"
+msgstr ""
+
+#: views/admin/index/browse.php:39 views/admin/index/browse.php:39
+msgid "Select"
+msgstr ""
+
+#: views/admin/index/browse.php:43 views/admin/index/browse.php:43
+msgid "Title"
+msgstr ""
+
+#: views/admin/index/browse.php:44 views/admin/index/browse.php:44
+msgid "Tag"
+msgstr ""
+
+#: views/admin/index/browse.php:45 views/admin/index/browse.php:45
+msgid "Status"
+msgstr ""
+
+#: views/admin/index/browse.php:46 views/admin/index/browse.php:46
+msgid "User"
+msgstr ""
+
+#: views/admin/index/browse.php:47 views/admin/index/browse.php:47
+msgid "Date Added"
+msgstr ""
+
+#: views/admin/index/browse.php:76 views/admin/index/browse.php:76
+msgid "Undefined"
+msgstr ""
+
+#: views/admin/index/browse.php:115 views/admin/index/browse.php:115
+msgid "Are your sure to remove these taggings?"
+msgstr ""
+
+#: views/admin/index/browse.php:123 views/admin/index/browse.php:123
+msgid "There is no tagging yet."
+msgstr ""
+
+#: views/admin/index/browse.php:125 views/admin/index/browse.php:125
+#, php-format
+msgid "The query searched %d items and returned no results."
+msgstr ""
+
+#: views/admin/index/browse.php:126 views/admin/index/browse.php:126
+msgid "See all taggings."
+msgstr ""
+
+#: views/admin/plugins/tagging-config-form.php:11
+#: views/admin/plugins/tagging-config-form.php:11
+msgid "Tagging Form"
+msgstr ""
+
+#: views/admin/plugins/tagging-config-form.php:14
+#: views/admin/plugins/tagging-config-form.php:14
+msgid "Class to add to the form"
+msgstr ""
+
+#: views/admin/plugins/tagging-config-form.php:23
+#: views/admin/plugins/tagging-config-form.php:23
+msgid "Proposed Tagging"
+msgstr ""
+
+#: views/admin/plugins/tagging-config-form.php:26
+#: views/admin/plugins/tagging-config-form.php:26
+msgid "Max length of the proposition of tagging"
+msgstr ""
+
+#: views/admin/plugins/tagging-config-form.php:36
+#: views/admin/plugins/tagging-config-form.php:36
+msgid "Max length of a proposed tag"
+msgstr ""
+
+#: views/admin/plugins/tagging-config-form.php:45
+#: views/admin/plugins/tagging-config-form.php:45
+msgid "Public Rights"
+msgstr ""
+
+#: views/admin/plugins/tagging-config-form.php:48
+#: views/admin/plugins/tagging-config-form.php:48
+msgid "Legal agreement"
+msgstr ""
+
+#: views/admin/plugins/tagging-config-form.php:62
+#: views/admin/plugins/tagging-config-form.php:62
+msgid "This text will be shown beside the legal checkbox."
+msgstr ""
+
+#: views/admin/plugins/tagging-config-form.php:63
+#: views/admin/plugins/tagging-config-form.php:63
+msgid "Let empty if you don't want to use a legal agreement."
+msgstr ""
+
+#: views/admin/plugins/tagging-config-form.php:76
+#: views/admin/plugins/tagging-config-form.php:76
+msgid "Allow public to tag"
+msgstr ""
+
+#: views/admin/plugins/tagging-config-form.php:88
+#: views/admin/plugins/tagging-config-form.php:88
+msgid "Require approbation for public tags"
+msgstr ""
+
+#: views/admin/plugins/tagging-config-form.php:93
+#: views/admin/plugins/tagging-config-form.php:93
+msgid "Roles"
+msgstr ""
+
+#: views/admin/plugins/tagging-config-form.php:96
+#: views/admin/plugins/tagging-config-form.php:96
+msgid "Roles that can tag"
+msgstr ""
+
+#: views/admin/plugins/tagging-config-form.php:120
+#: views/admin/plugins/tagging-config-form.php:120
+msgid "Roles that require moderation"
+msgstr ""
+
+#: views/admin/plugins/tagging-config-form.php:144
+#: views/admin/plugins/tagging-config-form.php:144
+msgid "Roles that can moderate"
+msgstr ""
+
+#: views/admin/common/quick-filters.php:2
+#: views/admin/common/quick-filters.php:4
+#: views/admin/common/quick-filters.php:2
+#: views/admin/common/quick-filters.php:4
+msgid "Quick Filter"
+msgstr ""
+
+#: views/admin/common/quick-filters.php:5
+#: views/admin/common/quick-filters.php:5
+msgid "View All"
+msgstr ""
+
+#: views/admin/common/quick-filters.php:6
+#: views/admin/common/quick-filters.php:6
+msgid "Not moderated"
+msgstr ""
+
+#: views/admin/common/quick-filters.php:7
+#: views/admin/common/quick-filters.php:7
+msgid "Moderated"
 msgstr ""

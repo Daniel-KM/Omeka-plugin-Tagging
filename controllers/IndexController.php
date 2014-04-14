@@ -7,6 +7,9 @@
  */
 class Tagging_IndexController extends Omeka_Controller_AbstractActionController
 {
+    /**
+     * Controller-wide initialization. Sets the underlying model to use.
+     */
     public function init()
     {
         $this->_helper->db->setDefaultModelName('Tagging');
@@ -48,20 +51,29 @@ class Tagging_IndexController extends Omeka_Controller_AbstractActionController
 
         // Moderation or not.
         $user = current_user();
-        if (empty($user)) {
-            $user_id = 0;
-            $requireModeration = (boolean) get_option('tagging_public_require_moderation');
+        // If the user can moderate, the proposition is automatically approved.
+        $moderationRoles = unserialize(get_option('tagging_moderate_roles'));
+        if (in_array($user->role, $moderationRoles)) {
+            $status = 'approved';
         }
+        // Else check if a moderation is required.
         else {
-            $user_id = $user->id;
-            $requireModerationRoles = unserialize(get_option('tagging_require_moderation_roles'));
-            $requireModeration = in_array($user->role, $requireModerationRoles);
+            if (empty($user)) {
+                $user_id = 0;
+                $requireModeration = (boolean) get_option('tagging_public_require_moderation');
+            }
+            else {
+                $user_id = $user->id;
+                $requireModerationRoles = unserialize(get_option('tagging_require_moderation_roles'));
+                $requireModeration = in_array($user->role, $requireModerationRoles);
+            }
+            $status = $requireModeration ? 'proposed' : 'allowed';
         }
 
         // Default values for tagging.
         $data['ip'] = $_SERVER['REMOTE_ADDR'];
         $data['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
-        $data['status'] = $requireModeration ? 'proposed' : 'approved';
+        $data['status'] = $status;
         // Need getValue to run the filter.
         $userTagging = $form->getElement('tagging')->getValue();
         $proposedTaggingsNames = explode(get_option('tag_delimiter'), $userTagging);
@@ -79,7 +91,7 @@ class Tagging_IndexController extends Omeka_Controller_AbstractActionController
         foreach ($proposedTaggingsNames as $proposedTag) {
             // Name sanitization is done later, in beforeSave().
             $data['name'] = $proposedTag;
-            $tagging = new Tagging();
+            $tagging = new Tagging;
             $tagging->user_id = $user_id;
             $tagging->setArray($data);
             $sanitizedName = $tagging->sanitizeName();

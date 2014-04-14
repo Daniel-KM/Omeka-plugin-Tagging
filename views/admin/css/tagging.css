@@ -21,6 +21,9 @@ a.tagging.status {
 a.tagging.toggle-status.proposed {
     background: url('../../../../../application/views/scripts/images/silk-icons/error.png') no-repeat scroll 0 0 transparent;
 }
+a.tagging.toggle-status.allowed {
+    background: url('../../../../../application/views/scripts/images/silk-icons/note_error.png') no-repeat scroll 0 0 transparent;
+}
 a.tagging.toggle-status.approved {
     background: url('../../../../../application/views/scripts/images/silk-icons/tick.png') no-repeat scroll 0 0 transparent;
 }

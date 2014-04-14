@@ -1,5 +1,5 @@
 <?php
-$pageTitle = __('Taggings (%s total)', $total_results);
+$pageTitle = __('Taggings (%d total)', $total_results);
 queue_css_file('tagging');
 queue_js_file('tagging');
 queue_js_file('tagging-browse');
@@ -61,6 +61,7 @@ echo head(array(
                 <?php endif; ?>
                 <td class="record-info">
                     <?php // Currently, taggable records are items in Omeka.
+                    // echo link_to($record, 'show', metadata($record, array('Dublin Core', 'Title')));
                     echo link_to_item(null, array(), 'show', $record); ?>
                 </td>
                 <td class="tagging-name">
@@ -69,11 +70,12 @@ echo head(array(
                 <td class="tagging-status">
                     <?php switch ($tagging->status) {
                         case 'proposed': $status = __('Proposed'); break;
+                        case 'allowed': $status = __('Allowed'); break;
                         case 'approved': $status = __('Approved'); break;
                         case 'rejected': $status = __('Rejected'); break;
                         default: $status = __('Undefined');
                     } ?>
-                    <a href="<?php echo ADMIN_BASE_URL; ?>" id="tagging-<?php echo $tagging->id; ?>" class="tagging toggle-status status <?php echo $tagging->status; ?>"><?php echo $status; ?></span>
+                    <a href="<?php echo ADMIN_BASE_URL; ?>" id="tagging-<?php echo $tagging->id; ?>" class="tagging toggle-status status <?php echo $tagging->status; ?>"><?php echo $status; ?></a>
                 </td>
                 <td>
                     <?php echo html_escape(metadata($tagging, 'added_username')); ?>
@@ -106,10 +108,11 @@ echo head(array(
     <script type="text/javascript">
         Omeka.messages = jQuery.extend(Omeka.messages,
             {'tagging':{
-                'proposed':'<?php echo __('Proposed'); ?>',
-                'approved':'<?php echo __('Approved'); ?>',
-                'rejected':'<?php echo __('Rejected'); ?>',
-                'confirmation':'<?php echo __('Are your sure to remove these taggings?'); ?>'
+                'proposed':<?php echo json_encode(__('Proposed')); ?>,
+                'allowed':<?php echo json_encode(__('Allowed')); ?>,
+                'approved':<?php echo json_encode(__('Approved')); ?>,
+                'rejected':<?php echo json_encode(__('Rejected')); ?>,
+                'confirmation':<?php echo json_encode(__('Are your sure to remove these taggings?')); ?>
             }}
         );
         Omeka.addReadyCallback(Omeka.TaggingsBrowse.setupBatchEdit);
@@ -119,7 +122,7 @@ echo head(array(
     <?php if (total_records('Tagging') == 0): ?>
     <h2><?php echo __('There is no tagging yet.'); ?></h2>
     <?php else: ?>
-    <p><?php echo __('The query searched %s items and returned no results.', total_records('Tagging')); ?></p>
+    <p><?php echo __('The query searched %d items and returned no results.', total_records('Tagging')); ?></p>
     <p><a href="<?php echo url('tagging'); ?>"><?php echo __('See all taggings.'); ?></p>
     <?php endif; ?>
 <?php endif; ?>

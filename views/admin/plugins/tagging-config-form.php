@@ -59,8 +59,8 @@ jQuery(window).load(function () {
                      )
                 ); ?>
                 <p class="explanation">
-                    <?php echo __('This text will be shown beside the legal checkbox.'
-                        . " Let empty if you don't want to use a legal agreement."); ?>
+                    <?php echo __('This text will be shown beside the legal checkbox.'); ?>
+                    <?php echo ' ' . __("Let empty if you don't want to use a legal agreement."); ?>
                 </p>
             </div>
         </div>
