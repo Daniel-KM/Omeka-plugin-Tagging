@@ -97,7 +97,7 @@ class Table_Tagging extends Omeka_Db_Table
     }
 
     /**
-     * Find by one or multiple status.
+     * Find by user.
      *
      * @param integer|User $user User object or user id.
      * @return array of taggings.
@@ -134,44 +134,15 @@ class Table_Tagging extends Omeka_Db_Table
     }
 
     /**
-     * Filter taggings by name.
-     *
-     * @see self::applySearchFilters()
-     * @param Omeka_Db_Select
-     * @param string $record name.
-     */
-    public function filterByName($select, $name)
-    {
-        $alias = $this->getTableAlias();
-        $select->where($alias . '.name = ?', $name);
-    }
-
-    /**
-     * Filter records on their status.
-     *
-     * @see self::applySearchFilters()
-     * @param Omeka_Db_Select
-     * @param array|string $status Status to filter by.
-     */
-    public function filterByStatus($select, $status)
-    {
-        $alias = $this->getTableAlias();
-        if (is_array($status)) {
-            $select->where($alias . '.status in (?)', $status);
-        }
-        else {
-            $select->where($alias . '.status = ?', $status);
-        }
-    }
-
-    /**
      * @param Omeka_Db_Select
      * @param array
      * @return void
      */
     public function applySearchFilters($select, $params)
     {
+        $alias = $this->getTableAlias();
         $boolean = new Omeka_Filter_Boolean;
+        $genericParams = array();
         foreach ($params as $key => $value) {
             if ($value === null || (is_string($value) && trim($value) == '')) {
                 continue;
@@ -184,18 +155,18 @@ class Table_Tagging extends Omeka_Db_Table
                     break;
                 case 'tag':
                 case 'name':
-                    $this->filterByName($select, $value);
+                    $genericParams['name'] = $value;
                     break;
                 case 'status':
                     switch ($value) {
                         case 'moderated':
-                            $this->filterByStatus($select, array('approved', 'rejected'));
+                            $genericParams['status'] = array('approved', 'rejected');
                             break;
                         case 'not moderated':
-                            $this->filterByStatus($select, array('proposed', 'allowed'));
+                            $genericParams['status'] = array('proposed', 'allowed');
                             break;
                         default:
-                            $this->filterByStatus($select, $value);
+                            $genericParams['status'] = $value;
                             break;
                     }
                     break;
@@ -205,10 +176,16 @@ class Table_Tagging extends Omeka_Db_Table
                 case 'added_since':
                     $this->filterBySince($select, $value, 'added');
                     break;
+                default:
+                    $genericParams[$key] = $value;
             }
         }
 
+        if (!empty($genericParams)) {
+            parent::applySearchFilters($select, $genericParams);
+        }
+
         // If we returning the data itself, we need to group by the record id.
-        $select->group('taggings.id');
+        $select->group("$alias.id");
     }
 }

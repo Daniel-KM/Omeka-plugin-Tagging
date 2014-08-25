@@ -70,7 +70,7 @@ jQuery(window).load(function () {
             <label for="tagging_public_allow_tag"></label>
         </div>
         <div class="inputs five columns omega">
-            <?php echo get_view()->formCheckbox('tagging_public_allow_tag', true,
+            <?php echo $view->formCheckbox('tagging_public_allow_tag', true,
                 array('checked'=>(boolean) get_option('tagging_public_allow_tag'))); ?>
             <p class="explanation">
                 <?php echo __('Allow public to tag'); ?>
@@ -82,7 +82,7 @@ jQuery(window).load(function () {
             <label for="tagging_public_require_moderation"></label>
         </div>
         <div class="inputs five columns omega">
-            <?php echo get_view()->formCheckbox('tagging_public_require_moderation', true,
+            <?php echo $view->formCheckbox('tagging_public_require_moderation', true,
                 array('checked'=>(boolean) get_option('tagging_public_require_moderation'))); ?>
             <p class="explanation">
                 <?php echo __('Require approbation for public tags'); ?>

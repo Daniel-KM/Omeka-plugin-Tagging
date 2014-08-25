@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @package Tagging\models
+ */
 class Tagging extends Omeka_Record_AbstractRecord implements Zend_Acl_Resource_Interface
 {
     public $id;

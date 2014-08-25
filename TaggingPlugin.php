@@ -15,7 +15,7 @@
  * The Tagging plugin.
  * @package Omeka\Plugins\Tagging
  */
- class TaggingPlugin extends Omeka_Plugin_AbstractPlugin
+class TaggingPlugin extends Omeka_Plugin_AbstractPlugin
 {
     /**
      * @var array Hooks for the plugin.
@@ -30,9 +30,9 @@
         'define_acl',
         'admin_head',
         'public_head',
+        'admin_items_browse',
         'admin_items_browse_simple_each',
         'admin_items_browse_detailed_each',
-        'admin_items_browse',
         'admin_items_show_sidebar',
         'public_items_show',
         'after_delete_item',
@@ -87,7 +87,7 @@
             `record_id` int unsigned NOT NULL,
             `name` varchar(255) collate utf8_unicode_ci NOT NULL DEFAULT '',
             `status` enum('proposed', 'allowed', 'approved', 'rejected') NOT NULL DEFAULT 'proposed',
-            `user_id` int(11) DEFAULT NULL,
+            `user_id` int(10) DEFAULT NULL,
             `ip` tinytext COLLATE utf8_unicode_ci,
             `user_agent` tinytext COLLATE utf8_unicode_ci,
             `added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -189,10 +189,10 @@
             $acl->allow(null, 'Tagging_Tagging', array('add'));
         }
         else {
-            $tagRoles = unserialize(get_option('tagging_tag_roles'));
+            $roles = unserialize(get_option('tagging_tag_roles'));
             // Check that all the roles exist, in case a plugin-added role has
             // been removed (e.g. GuestUser).
-            foreach ($tagRoles as $role) {
+            foreach ($roles as $role) {
                 if ($acl->hasRole($role)) {
                     $acl->allow($role, 'Tagging_Tagging', 'add');
                 }
@@ -230,9 +230,24 @@
 
     public function hookPublicHead($args)
     {
-        if (get_view()->isTaggingAllowed()) {
+        if ($args['view']->isTaggingAllowed()) {
             queue_css_file('tagging');
         }
+    }
+
+    public function hookAdminItemsBrowse($args)
+    { ?>
+<script type="text/javascript">
+    Omeka.messages = jQuery.extend(Omeka.messages,
+        {'tagging':{
+            'proposed':<?php echo json_encode(__('Proposed')); ?>,
+            'allowed':<?php echo json_encode(__('Allowed')); ?>,
+            'approved':<?php echo json_encode(__('Approved')); ?>,
+            'rejected':<?php echo json_encode(__('Rejected')); ?>
+        }}
+    );
+</script>
+    <?php
     }
 
     public function hookAdminItemsBrowseSimpleEach($args)
@@ -240,12 +255,12 @@
         $view = $args['view'];
         $item = $args['item'];
 
-        $taggings = get_db()->getTable('Tagging')->findByRecord($item);
+        $taggings = $this->_db->getTable('Tagging')->findByRecord($item);
         if (!count($taggings)) {
             echo __('No proposed taggings');
         }
         else {
-            $moderatedTaggings = get_db()->getTable('Tagging')->findModeratedByRecord($item);
+            $moderatedTaggings = $this->_db->getTable('Tagging')->findModeratedByRecord($item);
             echo __('Taggings: %d proposed (%d not moderated)', count($taggings), count($taggings) - count($moderatedTaggings));
         }
     }
@@ -261,7 +276,7 @@
     private function _displayTaggingsOfItem($item)
     {
         $html = '';
-        $taggings = get_db()->getTable('Tagging')->findByRecord($item);
+        $taggings = $this->_db->getTable('Tagging')->findByRecord($item);
         if (count($taggings)) {
             $html .= '<ul class="taggings-list">';
             foreach ($taggings as $tagging) {
@@ -289,21 +304,6 @@
         return vsprintf($html, $args);
     }
 
-    public function hookAdminItemsBrowse($args)
-    { ?>
-<script type="text/javascript">
-    Omeka.messages = jQuery.extend(Omeka.messages,
-        {'tagging':{
-            'proposed':<?php echo json_encode(__('Proposed')); ?>,
-            'allowed':<?php echo json_encode(__('Allowed')); ?>,
-            'approved':<?php echo json_encode(__('Approved')); ?>,
-            'rejected':<?php echo json_encode(__('Rejected')); ?>
-        }}
-    );
-</script>
-    <?php
-    }
-
     public function hookAdminItemsShowSidebar($args)
     {
         $item = $args['item'];
@@ -319,9 +319,9 @@
      */
     public function hookPublicItemsShow($args)
     {
-        if (get_view()->isTaggingAllowed()) {
-            $view = $args['view'];
-            $item = $args['item'];
+        $view = $args['view'];
+        $item = $args['item'];
+        if ($view->isTaggingAllowed()) {
             echo $view->getTaggingForm($item);
         }
     }
@@ -332,7 +332,7 @@
     public function hookAfterDeleteItem($args)
     {
         $item = $args['record'];
-        $taggings = get_db()->getTable('Tagging')->findByRecord($item);
+        $taggings = $this->_db->getTable('Tagging')->findByRecord($item);
         foreach ($taggings as $tagging) {
             $tagging->delete();
         }
@@ -345,10 +345,9 @@
     {
         $item = $args['record'];
         $removed = $args['removed'];
-        $db = get_db();
         foreach ($removed as $tag) {
             // Check if this tag is a tagging.
-            $tagging = $db->getTable('Tagging')->findByRecordAndName($item, $tag->name);
+            $tagging = $this->_db->getTable('Tagging')->findByRecordAndName($item, $tag->name);
             if ($tagging) {
                 $tagging->saveStatus('rejected');
             }
