@@ -142,12 +142,11 @@ class TaggingPlugin extends Omeka_Plugin_AbstractPlugin
 
     /**
      * Shows plugin configuration page.
-     *
-     * @return void
      */
-    public function hookConfigForm()
+    public function hookConfigForm($args)
     {
-        echo get_view()->partial(
+        $view = get_view();
+        echo $view->partial(
             'plugins/tagging-config-form.php'
         );
     }

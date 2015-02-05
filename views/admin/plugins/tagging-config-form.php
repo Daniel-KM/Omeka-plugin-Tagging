@@ -7,15 +7,15 @@ jQuery(window).load(function () {
   });
 });
 </script>
-<?php $view = get_view(); ?>
 <fieldset id="fieldset-tagging-form"><legend><?php echo __('Tagging Form'); ?></legend>
     <div class='field'>
         <div class="two columns alpha">
-            <label><?php echo __('Class to add to the form'); ?></label>
+            <?php echo $this->formLabel('tagging_form_class',
+                __('Class to add to the form')); ?>
         </div>
         <div class='inputs five columns omega'>
             <div class='input-block'>
-                <?php echo $view->formText('tagging_form_class', get_option('tagging_form_class')); ?>
+                <?php echo $this->formText('tagging_form_class', get_option('tagging_form_class')); ?>
             </div>
         </div>
     </div>
@@ -23,21 +23,23 @@ jQuery(window).load(function () {
 <fieldset id="fieldset-tagging-form"><legend><?php echo __('Proposed Tagging'); ?></legend>
     <div class='field'>
         <div class="two columns alpha">
-            <label><?php echo __('Max length of the proposition of tagging'); ?></label>
+            <?php echo $this->formLabel('tagging_max_length_total',
+                __('Max length of the proposition of tagging')); ?>
         </div>
         <div class='inputs five columns omega'>
             <div class='input-block'>
-                <?php echo $view->formText('tagging_max_length_total', get_option('tagging_max_length_total')); ?>
+                <?php echo $this->formText('tagging_max_length_total', get_option('tagging_max_length_total')); ?>
             </div>
         </div>
     </div>
     <div class='field'>
         <div class="two columns alpha">
-            <label><?php echo __('Max length of a proposed tag'); ?></label>
+            <?php echo $this->formLabel('tagging_max_length_tag',
+                __('Max length of a proposed tag')); ?>
         </div>
         <div class='inputs five columns omega'>
             <div class='input-block'>
-                <?php echo $view->formText('tagging_max_length_tag', get_option('tagging_max_length_tag')); ?>
+                <?php echo $this->formText('tagging_max_length_tag', get_option('tagging_max_length_tag')); ?>
             </div>
         </div>
     </div>
@@ -45,11 +47,12 @@ jQuery(window).load(function () {
 <fieldset id="fieldset-tagging-public"><legend><?php echo __('Public Rights'); ?></legend>
     <div class='field'>
         <div class="two columns alpha">
-            <label><?php echo __('Legal agreement'); ?></label>
+            <?php echo $this->formLabel('tagging_legal_text',
+                __('Legal agreement')); ?>
         </div>
         <div class='inputs five columns omega'>
             <div class='input-block'>
-                <?php echo $view->formTextarea(
+                <?php echo $this->formTextarea(
                     'tagging_legal_text',
                     get_option('tagging_legal_text'),
                     array(
@@ -70,7 +73,7 @@ jQuery(window).load(function () {
             <label for="tagging_public_allow_tag"></label>
         </div>
         <div class="inputs five columns omega">
-            <?php echo $view->formCheckbox('tagging_public_allow_tag', true,
+            <?php echo $this->formCheckbox('tagging_public_allow_tag', true,
                 array('checked'=>(boolean) get_option('tagging_public_allow_tag'))); ?>
             <p class="explanation">
                 <?php echo __('Allow public to tag'); ?>
@@ -82,7 +85,7 @@ jQuery(window).load(function () {
             <label for="tagging_public_require_moderation"></label>
         </div>
         <div class="inputs five columns omega">
-            <?php echo $view->formCheckbox('tagging_public_require_moderation', true,
+            <?php echo $this->formCheckbox('tagging_public_require_moderation', true,
                 array('checked'=>(boolean) get_option('tagging_public_require_moderation'))); ?>
             <p class="explanation">
                 <?php echo __('Require approbation for public tags'); ?>
@@ -93,7 +96,8 @@ jQuery(window).load(function () {
 <fieldset id="fieldset-tagging-roles"><legend><?php echo __('Roles'); ?></legend>
     <div class="field">
         <div class="two columns alpha">
-            <label><?php echo __("Roles that can tag"); ?></label>
+            <?php echo $this->formLabel('tagging_tag_roles',
+                __('Roles that can tag')); ?>
         </div>
         <div class="inputs five columns omega">
             <div class="input-block">
@@ -104,7 +108,7 @@ jQuery(window).load(function () {
                     echo '<ul>';
                     foreach ($userRoles as $role => $label) {
                         echo '<li>';
-                        echo $view->formCheckbox('tagging_tag_roles[]', $role, array(
+                        echo $this->formCheckbox('tagging_tag_roles[]', $role, array(
                             'checked'=> in_array($role, $currentRoles) ? 'checked' : '',
                         ));
                         echo $label;
@@ -117,7 +121,8 @@ jQuery(window).load(function () {
     </div>
     <div class="field">
         <div class="two columns alpha">
-            <label><?php echo __("Roles that require moderation"); ?></label>
+            <?php echo $this->formLabel('tagging_require_moderation_roles',
+                __('Roles that require moderation')); ?>
         </div>
         <div class="inputs five columns omega">
             <div class="input-block">
@@ -128,7 +133,7 @@ jQuery(window).load(function () {
                     echo '<ul>';
                     foreach ($userRoles as $role => $label) {
                         echo '<li>';
-                        echo $view->formCheckbox('tagging_require_moderation_roles[]', $role, array(
+                        echo $this->formCheckbox('tagging_require_moderation_roles[]', $role, array(
                             'checked'=> in_array($role, $currentRoles) ? 'checked' : '',
                         ));
                         echo $label;
@@ -141,7 +146,8 @@ jQuery(window).load(function () {
     </div>
     <div class="field">
         <div class="two columns alpha">
-            <label><?php echo __("Roles that can moderate"); ?></label>
+            <?php echo $this->formLabel('tagging_moderate_roles',
+                __('Roles that can moderate')); ?>
         </div>
         <div class="inputs five columns omega">
             <div class="input-block">
@@ -152,7 +158,7 @@ jQuery(window).load(function () {
                     echo '<ul>';
                     foreach ($userRoles as $role => $label) {
                         echo '<li>';
-                        echo $view->formCheckbox('tagging_moderate_roles[]', $role, array(
+                        echo $this->formCheckbox('tagging_moderate_roles[]', $role, array(
                             'checked'=> in_array($role, $currentRoles) ? 'checked' : '',
                         ));
                         echo $label;

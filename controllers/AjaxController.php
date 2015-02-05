@@ -35,7 +35,7 @@ class Tagging_AjaxController extends Omeka_Controller_AbstractActionController
             }
 
             $id = (integer) $this->_getParam('id');
-            $tagging = get_record_by_id('Tagging', $id);
+            $tagging = $this->_helper->db->find($id);
             if (!$tagging) {
                 $this->getResponse()->setHttpResponseCode(400);
                 return;
@@ -58,7 +58,7 @@ class Tagging_AjaxController extends Omeka_Controller_AbstractActionController
         // Handle action.
         try {
             $id = (integer) $this->_getParam('id');
-            $tagging = get_record_by_id('Tagging', $id);
+            $tagging = $this->_helper->db->find($id);
             if (!$tagging) {
                 $this->getResponse()->setHttpResponseCode(400);
                 return;
