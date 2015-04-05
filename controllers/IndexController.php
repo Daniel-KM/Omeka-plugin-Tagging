@@ -197,7 +197,7 @@ class Tagging_IndexController extends Omeka_Controller_AbstractActionController
      *
      * @return integer
      */
-    protected function _getBrowseRecordsPerPage()
+    protected function _getBrowseRecordsPerPage($pluralName = null)
     {
         return is_admin_theme()
             ? (int) get_option('per_page_admin')

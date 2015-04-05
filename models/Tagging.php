@@ -127,7 +127,7 @@ class Tagging extends Omeka_Record_AbstractRecord implements Zend_Acl_Resource_I
             case 'added_username':
                 $user = $this->getAddedByUser();
                 return $user
-                    ? $this->getAddedByUser()->username
+                    ? $user->username
                     : __('Anonymous');
             default:
                 return parent::getProperty($property);
