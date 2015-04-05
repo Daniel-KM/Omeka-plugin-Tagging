@@ -1,9 +1,6 @@
 Tagging (plugin for Omeka)
 ==========================
 
-About
------
-
 [Tagging] is a plugin for [Omeka] that allows visitors to add tags to create a
 folksonomy.
 
@@ -45,14 +42,14 @@ Warning
 
 Use it at your own risk.
 
-It's always recommended to backup your files and database so you can roll back
-if needed.
+It's always recommended to backup your files and database regularly so you can
+roll back if needed.
 
 
 Troubleshooting
 ---------------
 
-See online issues on the [Tagging issues] page on GitHub.
+See online issues on the [plugin issues] page on GitHub.
 
 
 License
@@ -82,6 +79,7 @@ Contact
 -------
 
 Current maintainers:
+
 * Daniel Berthereau (see [Daniel-KM] on GitHub)
 
 First version of this plugin has been built for [Mines ParisTech].
@@ -90,16 +88,16 @@ First version of this plugin has been built for [Mines ParisTech].
 Copyright
 ---------
 
-* Copyright Daniel Berthereau, 2013-2014
+* Copyright Daniel Berthereau, 2013-2015
 
 
-[Omeka]: https://omeka.org "Omeka.org"
 [Tagging]: https://github.com/Daniel-KM/Tagging
-[Tagging issues]: https://github.com/Daniel-KM/Tagging/issues
+[Omeka]: https://omeka.org
+[plugin issues]: https://github.com/Daniel-KM/Tagging/issues
 [GuestUser]: https://github.com/omeka/plugin-GuestUser
-[CeCILL v2.1]: http://www.cecill.info/licences/Licence_CeCILL_V2.1-en.html "CeCILL v2.1"
-[GNU/GPL]: https://www.gnu.org/licenses/gpl-3.0.html "GNU/GPL v3"
+[CeCILL v2.1]: http://www.cecill.info/licences/Licence_CeCILL_V2.1-en.html
+[GNU/GPL]: https://www.gnu.org/licenses/gpl-3.0.html
 [FSF]: https://www.fsf.org
 [OSI]: http://opensource.org
 [Daniel-KM]: https://github.com/Daniel-KM "Daniel Berthereau"
-[Mines ParisTech]: http://bib.mines-paristech.fr "Mines ParisTech / ENSMP"
+[Mines ParisTech]: http://bib.mines-paristech.fr
