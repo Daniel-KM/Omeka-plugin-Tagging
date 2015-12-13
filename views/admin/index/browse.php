@@ -32,7 +32,7 @@ echo head(array(
 
         <?php echo common('quick-filters'); ?>
 
-        <table id="taggings" cellspacing="0" cellpadding="0">
+        <table id="taggings">
         <thead>
             <tr>
                 <?php if (is_allowed('Tagging_Tagging', 'update')): ?>
@@ -123,7 +123,7 @@ echo head(array(
     <h2><?php echo __('There is no tagging yet.'); ?></h2>
     <?php else: ?>
     <p><?php echo __('The query searched %d items and returned no results.', total_records('Tagging')); ?></p>
-    <p><a href="<?php echo url('tagging'); ?>"><?php echo __('See all taggings.'); ?></p>
+    <p><a href="<?php echo url('tagging'); ?>"><?php echo __('See all taggings.'); ?></a></p>
     <?php endif; ?>
 <?php endif; ?>
 <?php echo foot(); ?>
