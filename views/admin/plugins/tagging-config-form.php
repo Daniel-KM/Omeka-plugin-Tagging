@@ -102,7 +102,7 @@ jQuery(window).load(function () {
         <div class="inputs five columns omega">
             <div class="input-block">
                 <?php
-                    $currentRoles = unserialize(get_option('tagging_tag_roles'));
+                    $currentRoles = unserialize(get_option('tagging_tag_roles')) ?: array();
                     $userRoles = get_user_roles();
                     unset($userRoles['super']);
                     echo '<ul>';
@@ -127,7 +127,7 @@ jQuery(window).load(function () {
         <div class="inputs five columns omega">
             <div class="input-block">
                 <?php
-                    $currentRoles = unserialize(get_option('tagging_require_moderation_roles'));
+                    $currentRoles = unserialize(get_option('tagging_require_moderation_roles')) ?: array();
                     $userRoles = get_user_roles();
                     unset($userRoles['super']);
                     echo '<ul>';
@@ -152,7 +152,7 @@ jQuery(window).load(function () {
         <div class="inputs five columns omega">
             <div class="input-block">
                 <?php
-                    $currentRoles = unserialize(get_option('tagging_moderate_roles'));
+                    $currentRoles = unserialize(get_option('tagging_moderate_roles')) ?: array();
                     $userRoles = get_user_roles();
                     unset($userRoles['super']);
                     echo '<ul>';

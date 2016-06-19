@@ -136,6 +136,6 @@ class Tagging extends Omeka_Record_AbstractRecord implements Zend_Acl_Resource_I
 
     public function getResourceId()
     {
-        return 'Tagging';
+        return 'Taggings';
     }
 }

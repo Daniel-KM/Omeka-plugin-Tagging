@@ -21,10 +21,10 @@ class TaggingPlugin extends Omeka_Plugin_AbstractPlugin
      * @var array Hooks for the plugin.
      */
     protected $_hooks = array(
-        'initialize',
         'install',
         'upgrade',
         'uninstall',
+        'initialize',
         'config_form',
         'config',
         'define_acl',
@@ -65,14 +65,6 @@ class TaggingPlugin extends Omeka_Plugin_AbstractPlugin
     );
 
     /**
-     * Add the translations.
-     */
-    public function hookInitialize()
-    {
-        add_translation_source(dirname(__FILE__) . '/languages');
-    }
-
-    /**
      * Install the plugin.
      */
     public function hookInstall()
@@ -86,7 +78,7 @@ class TaggingPlugin extends Omeka_Plugin_AbstractPlugin
             `record_type` varchar(50) collate utf8_unicode_ci NOT NULL DEFAULT '',
             `record_id` int unsigned NOT NULL,
             `name` varchar(255) collate utf8_unicode_ci NOT NULL DEFAULT '',
-            `status` enum('proposed', 'allowed', 'approved', 'rejected') NOT NULL DEFAULT 'proposed',
+            `status` enum('proposed', 'allowed', 'approved', 'rejected') NOT NULL,
             `user_id` int(10) DEFAULT NULL,
             `ip` tinytext COLLATE utf8_unicode_ci,
             `user_agent` tinytext COLLATE utf8_unicode_ci,
@@ -119,10 +111,10 @@ class TaggingPlugin extends Omeka_Plugin_AbstractPlugin
         $newVersion = $args['new_version'];
         $db = $this->_db;
 
-        if (version_compare($oldVersion, '2.1', '<')) {
+        if (version_compare($oldVersion, '2.2', '<')) {
             $sql = "
                 ALTER TABLE `{$db->Tagging}`
-                CHANGE `status` `status` enum('proposed', 'allowed', 'approved', 'rejected') COLLATE 'utf8_unicode_ci' NOT NULL DEFAULT 'proposed' AFTER `name`
+                CHANGE `status` `status` enum('proposed', 'allowed', 'approved', 'rejected') COLLATE 'utf8_unicode_ci' NOT NULL AFTER `name`
             ";
             $db->query($sql);
         }
@@ -138,6 +130,14 @@ class TaggingPlugin extends Omeka_Plugin_AbstractPlugin
         $db->query($sql);
 
         $this->_uninstallOptions();
+    }
+
+    /**
+     * Add the translations.
+     */
+    public function hookInitialize()
+    {
+        add_translation_source(dirname(__FILE__) . '/languages');
     }
 
     /**

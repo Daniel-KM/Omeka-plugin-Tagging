@@ -1,6 +1,6 @@
 <?php
 
-class Tagging_TaggingForm extends Omeka_Form
+class Tagging_Form_Tagging extends Omeka_Form
 {
     protected $_record;
 

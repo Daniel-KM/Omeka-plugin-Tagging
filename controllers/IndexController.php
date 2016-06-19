@@ -28,7 +28,7 @@ class Tagging_IndexController extends Omeka_Controller_AbstractActionController
 
         $destination = $data['path'];
 
-        $form = $this->_getForm();
+        $form = new Tagging_Form_Tagging();
         $valid = $form->isValid($this->getRequest()->getPost());
         if (!$valid) {
             $taggingSession = new Zend_Session_Namespace('tagging');
@@ -179,12 +179,12 @@ class Tagging_IndexController extends Omeka_Controller_AbstractActionController
 
     public function browseAction()
     {
-        if (!$this->_hasParam('sort_field')) {
-            $this->_setParam('sort_field', 'added');
+        if (!$this->hasParam('sort_field')) {
+            $this->setParam('sort_field', 'added');
         }
 
-        if (!$this->_hasParam('sort_dir')) {
-            $this->_setParam('sort_dir', 'd');
+        if (!$this->hasParam('sort_dir')) {
+            $this->setParam('sort_dir', 'd');
         }
 
         parent::browseAction();
@@ -202,11 +202,5 @@ class Tagging_IndexController extends Omeka_Controller_AbstractActionController
         return is_admin_theme()
             ? (int) get_option('per_page_admin')
             : (int) get_option('per_page_public');
-    }
-
-    private function _getForm()
-    {
-        require_once PLUGIN_DIR . '/Tagging/forms/TaggingForm.php';
-        return new Tagging_TaggingForm();
     }
 }

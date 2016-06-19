@@ -25,15 +25,27 @@ Displaying Tagging Form
 -----------------------
 
 The plugin will add tagging form automatically on items/show page if the current
-user has right to use it:
-```php
-fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item));
+user has right to use it.
+
+It can be added too via code in the theme (items/show.php) in special cases:
+
+```
+    <a href="#" id="display-tagging-form" class="button blue right" onclick="return false;">+</a>
+    <?php echo $view->getTaggingForm($item); ?>
+    <script type="text/javascript">
+        jQuery("a#display-tagging-form").click(function(event){
+            jQuery("#tagging-form").fadeToggle();
+            event.stopImmediatePropagation();
+        });
+    </script>
 ```
 
-If you need more flexibility, you can use view helpers:
+Or via a simple hook (javascript is automatically included):
+
 ```php
-echo $this->getTaggingForm();
+    fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item));
 ```
+
 Rights are automatically managed.
 
 
@@ -88,7 +100,7 @@ First version of this plugin has been built for [Mines ParisTech].
 Copyright
 ---------
 
-* Copyright Daniel Berthereau, 2013-2015
+* Copyright Daniel Berthereau, 2013-2016
 
 
 [Tagging]: https://github.com/Daniel-KM/Tagging
