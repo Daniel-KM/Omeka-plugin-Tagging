@@ -10,7 +10,7 @@
     margin-top: 35px;
     overflow: auto;
     padding: 1.5em 16px;
-    position: absolute;
+    /* position: absolute; */
     text-align: left;
     z-index: 1010;
 }
@@ -20,4 +20,23 @@
 #tagging-form ul.errors li {
     color: red;
     list-style: none outside none;
+}
+#display-tagging-form {
+    background-color: #000000;
+    border: 0 none;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: "Times",serif;
+    font-size: 16px;
+    line-height: 24px;
+    outline: 0 none;
+    overflow: visible;
+    padding: 3px 10px;
+    text-decoration: none;
+    width: auto;
+}
+#display-tagging-form:hover,
+#display-tagging-form:active,
+#display-tagging-form:focus {
+    background-color: #888888;
 }
