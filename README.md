@@ -29,9 +29,9 @@ user has right to use it.
 
 It can be added too via code in the theme (items/show.php) in special cases:
 
-```
+```php
     <a href="#" id="display-tagging-form" class="button blue right" onclick="return false;">+</a>
-    <?php echo $view->getTaggingForm($item); ?>
+    <?php echo $this->getTaggingForm($item); ?>
     <script type="text/javascript">
         jQuery("a#display-tagging-form").click(function(event){
             jQuery("#tagging-form").fadeToggle();
@@ -40,11 +40,22 @@ It can be added too via code in the theme (items/show.php) in special cases:
     </script>
 ```
 
-Or via a simple hook (javascript is automatically included):
+Or via a partial view:
+
+```php
+    echo $this->partial('common/tagging.php', array(
+        'item' => $item,
+        'tagging_message' => get_option('tagging_message'),
+    ));
+```
+
+Or via a simple hook:
 
 ```php
     fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item));
 ```
+
+The tagging form is customizable in the theme (common/tagging.php).
 
 Rights are automatically managed.
 

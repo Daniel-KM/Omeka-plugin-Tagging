@@ -53,6 +53,7 @@ class TaggingPlugin extends Omeka_Plugin_AbstractPlugin
         'tagging_form_class' => '',
         'tagging_max_length_total' => 400,
         'tagging_max_length_tag' => 40,
+        'tagging_message' => '+',
         'tagging_legal_text' => '',
         // Without roles.
         'tagging_public_allow_tag' => true,
@@ -320,14 +321,10 @@ class TaggingPlugin extends Omeka_Plugin_AbstractPlugin
     {
         $view = $args['view'];
         $item = $args['item'];
-        echo '<a href="#" id="display-tagging-form" class="button blue right" onclick="return false;">+</a>';
-        echo $view->getTaggingForm($item);
-        echo '<script type="text/javascript">
-            jQuery("a#display-tagging-form").click(function(event){
-                jQuery("#tagging-form").fadeToggle();
-                event.stopImmediatePropagation();
-            });
-        </script>';
+        echo $view->partial('common/tagging.php', array(
+            'item' => $item,
+            'tagging_message' => get_option('tagging_message'),
+        ));
     }
 
     /**

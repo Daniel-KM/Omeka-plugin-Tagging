@@ -30,7 +30,7 @@ class Tagging_Form_Tagging extends Omeka_Form
 
         $this->addElement('text', 'tagging', array(
             'label' => __('Add Tags'),
-            'description' => __('Separe multiple tags with a "%s".', get_option('tag_delimiter')),
+            'description' => __('Separate multiple tags with a "%s".', get_option('tag_delimiter')),
             'required' => true,
             'size' => 60,
             // An internal validator is used after (allow some non alnum

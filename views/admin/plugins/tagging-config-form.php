@@ -10,6 +10,20 @@ jQuery(window).load(function () {
 <fieldset id="fieldset-tagging-form"><legend><?php echo __('Tagging Form'); ?></legend>
     <div class='field'>
         <div class="two columns alpha">
+            <?php echo $this->formLabel('tagging_message',
+                __('Message to invite to tag')); ?>
+        </div>
+        <div class='inputs five columns omega'>
+            <div class='input-block'>
+                <?php echo $this->formText('tagging_message', get_option('tagging_message') ?: '+'); ?>
+            </div>
+            <p class="explanation">
+                <?php echo __('The text to click to display the tag form (a simple "+" by default, customizable in the theme).'); ?>
+            </p>
+        </div>
+    </div>
+    <div class='field'>
+        <div class="two columns alpha">
             <?php echo $this->formLabel('tagging_form_class',
                 __('Class to add to the form')); ?>
         </div>
