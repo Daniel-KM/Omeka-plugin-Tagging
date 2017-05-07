@@ -58,7 +58,12 @@ echo head(array(
                 <td class="record-info">
                     <?php // Currently, taggable records are items in Omeka.
                     // echo link_to($record, 'show', metadata($record, array('Dublin Core', 'Title')));
-                    echo link_to_item(null, array(), 'show', $record); ?>
+                    if ($record):
+                        echo link_to_item(null, array(), 'show', $record);
+                    else:
+                        echo '[' . __('Removed') . ']';
+                    endif;
+                ?>
                 </td>
                 <td class="tagging-name">
                     <?php echo html_escape($tagging->name); ?>
