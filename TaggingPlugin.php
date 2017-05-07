@@ -166,7 +166,7 @@ class TaggingPlugin extends Omeka_Plugin_AbstractPlugin
                     'tagging_require_moderation_roles',
                     'tagging_moderate_roles',
                 ))) {
-               $post[$optionKey] = serialize($post[$optionKey]) ?: serialize(array());
+                $post[$optionKey] = serialize($post[$optionKey] ?: array());
             }
             if (isset($post[$optionKey])) {
                 set_option($optionKey, $post[$optionKey]);
@@ -189,7 +189,7 @@ class TaggingPlugin extends Omeka_Plugin_AbstractPlugin
             $acl->allow(null, 'Tagging_Tagging', array('add'));
         }
         else {
-            $roles = unserialize(get_option('tagging_tag_roles'));
+            $roles = unserialize(get_option('tagging_tag_roles')) ?: array();
             // Check that all the roles exist, in case a plugin-added role has
             // been removed (e.g. GuestUser).
             foreach ($roles as $role) {
@@ -203,7 +203,7 @@ class TaggingPlugin extends Omeka_Plugin_AbstractPlugin
         // $requireModerationRoles = unserialize(get_option('tagging_require_moderation_roles'));
 
         // Moderation is available even if public can tag without moderation.
-        $moderateRoles = unserialize(get_option('tagging_moderate_roles'));
+        $moderateRoles = unserialize(get_option('tagging_moderate_roles')) ?: array();
         foreach ($moderateRoles as $role) {
             if ($acl->hasRole($role)) {
                 $acl->allow($role, 'Tagging_Tagging', array(
