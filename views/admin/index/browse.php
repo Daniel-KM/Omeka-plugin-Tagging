@@ -9,10 +9,6 @@ echo head(array(
 ));
 ?>
 <?php echo flash(); ?>
-<?php if (!Omeka_Captcha::isConfigured()): ?>
-    <p class="alert"><?php echo __("You have not entered your %s API keys under %s. We recommend adding these keys, or the tagging form will be vulnerable to spam.", '<a href="http://recaptcha.net/">reCAPTCHA</a>', "<a href='" . url('security#recaptcha_public_key') . "'>" . __('security settings') . "</a>");?></p>
-<?php endif; ?>
-    <p class="info"><?php echo __('Use <a href="%s">items page</a> to manage taggings by item.', url('items')); ?></p>
 
 <?php if ($total_results): ?>
     <?php echo pagination_links(); ?>
@@ -40,7 +36,7 @@ echo head(array(
                 </th>
                 <?php endif; ?>
                 <?php
-                $browseHeadings[__('Title')] = null;
+                $browseHeadings[__('Record')] = null;
                 $browseHeadings[__('Tag')] = 'name';
                 $browseHeadings[__('Status')] = 'status';
                 $browseHeadings[__('User')] = 'user_id';
@@ -126,4 +122,15 @@ echo head(array(
     <p><a href="<?php echo url('tagging'); ?>"><?php echo __('See all taggings.'); ?></a></p>
     <?php endif; ?>
 <?php endif; ?>
+<?php if (!Omeka_Captcha::isConfigured()): ?>
+    <p class="alert"><?php
+    echo __('You have not entered your %s API keys under %ssecurity settings%s.',
+        '<a href="http://recaptcha.net/">reCAPTCHA</a>', '<a href="' . url('security#recaptcha_public_key') . '">', '</a>');
+    echo ' ' . __('We recommend adding these keys, or the tagging form will be vulnerable to spam.');
+    ?></p>
+<?php endif; ?>
+    <p class="info"><?php
+    echo __('Use %sitems page%s to manage taggings by item.',
+        '<a href="' . url('items') . '">', '</a>');
+    ?></p>
 <?php echo foot(); ?>

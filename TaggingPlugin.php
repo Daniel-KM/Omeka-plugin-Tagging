@@ -93,7 +93,7 @@ class TaggingPlugin extends Omeka_Plugin_AbstractPlugin
         $db->query($sql);
 
         $html = '<p>';
-        $html .= __('I agree with %s terms of use %s and I accept to free my contribution under the licence %s CC BY-SA %s.',
+        $html .= __('I agree with %sterms of use%s and I accept to free my contribution under the licence %sCC BY-SA%s.',
             '<a rel="licence" href="#" target="_blank">', '</a>',
             '<a rel="licence" href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank">', '</a>'
         );

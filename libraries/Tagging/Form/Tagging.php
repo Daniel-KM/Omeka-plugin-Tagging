@@ -69,9 +69,10 @@ class Tagging_Form_Tagging extends Omeka_Form
         }
 
         // The legal agreement is checked by default for logged users.
-        if (get_option('tagging_legal_text')) {
+        $legalText = get_option('tagging_legal_text');
+        if ($legalText) {
             $this->addElement('checkbox', 'tagging_legal_text', array(
-                'label' => get_option('tagging_legal_text'),
+                'label' => $legalText,
                 'value' => (boolean) $user,
                 'required' => true,
                 'uncheckedValue'=> '',
