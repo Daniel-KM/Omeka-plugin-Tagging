@@ -35,6 +35,8 @@ It can be added too via code in the theme (items/show.php) in special cases:
 ```php
     <a href="#" id="display-tagging-form" class="button blue right" onclick="return false;">+</a>
     <?php echo $this->getTaggingForm($item); ?>
+    // Note: This js code must be queued with `queue_js_string()` when jQuery is
+    // loaded in the footer.
     <script type="text/javascript">
         jQuery("a#display-tagging-form").click(function(event){
             jQuery("#tagging-form").fadeToggle();
@@ -121,7 +123,7 @@ First version of this plugin has been built for the digital library of [Mines Pa
 Copyright
 ---------
 
-* Copyright Daniel Berthereau, 2013-2017
+* Copyright Daniel Berthereau, 2013-2018
 
 
 [Tagging]: https://github.com/Daniel-KM/Tagging
