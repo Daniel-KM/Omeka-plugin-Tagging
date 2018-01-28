@@ -36,7 +36,7 @@ It can be added too via code in the theme (items/show.php) in special cases:
     <a href="#" id="display-tagging-form" class="button blue right" onclick="return false;">+</a>
     <?php echo $this->getTaggingForm($item); ?>
     // Note: This js code must be queued with `queue_js_string()` when jQuery is
-    // loaded in the footer.
+    // loaded in the footer (see views/public/common/tagging.php).
     <script type="text/javascript">
         jQuery("a#display-tagging-form").click(function(event){
             jQuery("#tagging-form").fadeToggle();
