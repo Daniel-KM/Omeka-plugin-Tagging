@@ -26,7 +26,7 @@ class Table_Tagging extends Omeka_Db_Table
     /**
      * Find by record and one or multiple status.
      *
-     * @param Record $record
+     * @param Omeka_Record_AbstractRecord $record
      * @param string|array $status One status or a array of status.
      * @return array of taggings.
      */
