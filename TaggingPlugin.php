@@ -166,7 +166,9 @@ class TaggingPlugin extends Omeka_Plugin_AbstractPlugin
                     'tagging_require_moderation_roles',
                     'tagging_moderate_roles',
                 ))) {
-                $post[$optionKey] = serialize($post[$optionKey] ?: array());
+                $post[$optionKey] = empty($post[$optionKey])
+                    ? serialize(array())
+                    : serialize($post[$optionKey]);
             }
             if (isset($post[$optionKey])) {
                 set_option($optionKey, $post[$optionKey]);
