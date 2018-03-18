@@ -4,7 +4,7 @@
  *
  * Allows users to add tags with or without approbation to create a folksonomy.
  *
- * @copyright Copyright Daniel Berthereau, 2013-2014
+ * @copyright Copyright Daniel Berthereau, 2013-2018
  * @license http://www.cecill.info/licences/Licence_CeCILL_V2.1-en.txt
  * @package Tagging
  *
@@ -179,7 +179,7 @@ class TaggingPlugin extends Omeka_Plugin_AbstractPlugin
     /**
      * Defines the plugin's access control list.
      *
-     * @param object $args
+     * @param array $args
      */
     public function hookDefineAcl($args)
     {
