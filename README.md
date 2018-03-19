@@ -126,12 +126,12 @@ Copyright
 * Copyright Daniel Berthereau, 2013-2018
 
 
-[Tagging]: https://github.com/Daniel-KM/Tagging
+[Tagging]: https://github.com/Daniel-KM/Omeka-plugin-Tagging
 [Omeka]: https://omeka.org
 [Omeka S]: https://omeka.org/s
-[Upgrade to Omeka S]: https://github.com/Daniel-KM/UpgradeToOmekaS
+[Upgrade to Omeka S]: https://github.com/Daniel-KM/Omeka-plugin-UpgradeToOmekaS
 [Folksonomy]: https://github.com/Daniel-KM/Omeka-S-module-Folksonomy
-[plugin issues]: https://github.com/Daniel-KM/Tagging/issues
+[plugin issues]: https://github.com/Daniel-KM/Omeka-plugin-Tagging/issues
 [GuestUser]: https://github.com/omeka/plugin-GuestUser
 [CeCILL v2.1]: https://www.cecill.info/licences/Licence_CeCILL_V2.1-en.html
 [GNU/GPL]: https://www.gnu.org/licenses/gpl-3.0.html
